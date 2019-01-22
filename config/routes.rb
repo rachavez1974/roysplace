@@ -1,5 +1,7 @@
 Rails.application.routes.draw do  
 
+  get 'order_items/new'
+
   namespace :customer do
     get '/login',  to: 'sessions#new'
     post '/login',  to: 'sessions#create'
@@ -78,6 +80,9 @@ Rails.application.routes.draw do
   resources :brunches, except: [:index]
   get '/search_brunch',  to: 'brunches#search_form'
   get '/brunch_profile', to: 'brunches#show'
+
+  resource :cart, only: [:show]
+  resources :order_items
   
 
 end

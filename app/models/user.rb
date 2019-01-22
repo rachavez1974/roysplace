@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   has_many :addresses, dependent: :destroy
+  has_many :orders
   accepts_nested_attributes_for :addresses
 
   attr_accessor :remember_token, :activation_token, :reset_token

@@ -3,7 +3,7 @@ class CreateHappyHours < ActiveRecord::Migration[5.1]
     create_table :happy_hours do |t|
       t.string :name
       t.string :description
-      t.float :price
+      t.float :price, precision: 15, scale: 2
       t.boolean :availability
       t.integer :section
 

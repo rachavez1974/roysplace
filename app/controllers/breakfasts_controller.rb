@@ -7,6 +7,7 @@ before_action :find_item, except: :menu
 
   def menu
     @breakfasts = Breakfast.where("availability = ?", true)
+    @order_item = current_order.order_items.new
   end
 
   def show

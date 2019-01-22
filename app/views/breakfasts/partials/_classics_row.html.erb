@@ -17,14 +17,14 @@
       <div class="line-item-mainmenu bg3-pattern"></div>
 
       <div class="price-item-mainmenu txt22">
-        <%= breakfast.price %>
+        <%= number_to_currency breakfast.price %>
       </div>
     </div>
 
     <span class="info-item-mainmenu txt23">
       <%= breakfast.description %>
     </span>
-    <p><%= button_to "Add to Cart", "#", class: "btn btn-sm btn-primary"  %></p>
+    <p><%= button_to "Add to Cart", carts_path, class: "btn btn-sm btn-primary"  %></p>
   </div>
   <% end %>
   <% end %>

@@ -3,7 +3,7 @@ class CreateBreakfasts < ActiveRecord::Migration[5.1]
     create_table :breakfasts do |t|
       t.string :name
       t.string :description
-      t.float :price
+      t.float :price, precision: 15, scale: 2
       t.boolean :availability
       t.integer :section
 
