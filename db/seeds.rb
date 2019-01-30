@@ -8,24 +8,13 @@
 
 
 
-# lunch1=Lunch.first_name
-
-# Lunch.all = [lunch1, lunch2,...]
-# Breakfast.all = [breakfast1, breakfast, ...]
-# Lunch.all + Breakfast.all = [lunch1, lunch2, ..., breakfast1, breakfast2,...]
-# ...
-# [].concat(["apple","orange"]) 
-# ["apple", "orange"]
-#[lunch1, lunch2,..., breakfast1, breakfast2, ..., dinner1, ....]
 
 #lunch = Lunch.all? { |e|  }
 
-# allofthem.contact([lunch1, lunch2,...]+[breakfast1, breakfast, ...]+...+[...])
-# allofthem.contact([lunch1, lunch2,..., breakfast1, breakfast, ...])
-# [lunch1, lunch2,..., breakfast1, breakfast, ...]
+#Consolidated all the tables I had before to one table.
 
-#Consolidated all the tables I had before to one table. 
-items = Menu.all
+
+items = MenuItem.all
 ActiveRecord::Base.connection.reset_pk_sequence!('menus')
 ActiveRecord::Base.transaction do 
   items.each do |item|
