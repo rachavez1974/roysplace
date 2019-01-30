@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  orderable: one
+  orderable_type: Orderable
+  order: one
+  quantity: 1
+
+two:
+  orderable: two
+  orderable_type: Orderable
+  order: two
+  quantity: 1

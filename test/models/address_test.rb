@@ -22,15 +22,9 @@ class AddressTest < ActiveSupport::TestCase
     assert_not @address.valid?
   end
 
-  # test "Address type should be present" do
-  #   @address.address_type = "     "
-  #   assert_not @address.valid?
-  # end
-
   test "address type should be valid and present" do
     valid_address_type = %w[Business Military Residence]
       valid_address_type.each do |address|
-        puts address
         @address.address_type = address
         assert @address.valid?
       end

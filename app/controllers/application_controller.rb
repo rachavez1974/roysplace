@@ -2,7 +2,16 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   include SessionsHelper
   include ApplicationHelper
+  include MenusHelper
+  helper_method :current_order
 
+  def current_order
+    if session[:order_id]
+      Order.find(session[:order_id])
+    else
+      Order.new
+    end
+  end
 
   # Before filters
 
@@ -46,5 +55,21 @@ class ApplicationController < ActionController::Base
       flash[:danger] = "Please log in."
       redirect_to customer_login_url
     end
+  end
+
+  def find_user
+    @user = User.find_by("id = ? OR phone_number = ? Or email = ?",  id, phone, email)
+  end
+
+  def phone
+     params[:phone_number]  
+  end
+
+  def id
+    params[:id]
+  end
+
+  def email
+     params[:email]
   end
 end
