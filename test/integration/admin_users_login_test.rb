@@ -22,7 +22,7 @@ class AdminUsersLoginTest < ActionDispatch::IntegrationTest
 
   test "attempting login with right credentials and follow by logout" do
     get admin_login_path
-    assert_select "a[href=?]", admin_login_path, count: 1
+    assert_select "a[href=?]", admin_login_path, count: 2
     assert_template 'admin/sessions/new'
     post admin_login_path, params: { session: { email: "mr.james.bond@gmail.com",
                                                 password: "password"
@@ -36,15 +36,15 @@ class AdminUsersLoginTest < ActionDispatch::IntegrationTest
     assert_not flash.empty?
     assert_select 'div.alert', "Welcome back #{@user.first_name}"
     assert_select "a[href=?]", admin_login_path, count: 0
-    assert_select "a[href=?]", admin_logout_path, count: 1
-    assert_select "a[href=?]", customer_user_path(@user), count: 1
+    assert_select "a[href=?]", admin_logout_path, count: 2
+    assert_select "a[href=?]", customer_user_path(@user), count: 2
     delete admin_logout_path
     assert_not is_logged_in?
     assert_redirected_to admin_login_url
     # Simulate a user clicking logout in a second window.
     delete admin_logout_path
     follow_redirect!
-    assert_select "a[href=?]", admin_login_path, count: 1
+    assert_select "a[href=?]", admin_login_path, count: 2
     assert_select "a[href=?]", admin_logout_path, count: 0
     assert_select "a[href=?]", admin_user_path(@user), count: 0
   end

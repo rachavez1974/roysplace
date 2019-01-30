@@ -6,7 +6,7 @@ class RoysplaceAdminLayoutTest < ActionDispatch::IntegrationTest
     assert_template 'dashboard/home'
     assert_select "a[href=?]", admin_root_path, count: 2
     assert_select "a[href=?]", admin_addcustomer_path, count: 2
-    assert_select "a[href=?]", admin_login_path, count: 1
+    assert_select "a[href=?]", admin_login_path, count: 2
     #assert_select "a[href=?]", contact_path, count: 2
     # assert_select "a[href=?]", about_path
     # assert_select "a[href=?]", bagged_path

@@ -6,19 +6,7 @@ class Admin::DashboardController < ApplicationController
   def home
   end
 
-  def add_new_menu_items
-    
-  end
-
-  def update_menu_items
-    
-  end
-
-  def search_menu_items
-    
-  end
-  
-  def delete_menu_items
+  def breakfast_menu
     
   end
   

@@ -3,7 +3,7 @@ class Admin::UsersController < ApplicationController
   #Other Function definitions live in appplicaiton controller file
   before_action :logged_in_admin
   before_action :admin_user
-  before_action :find_customer
+  before_action :find_user
 
 
   def new
@@ -57,19 +57,4 @@ class Admin::UsersController < ApplicationController
                 :unit_type, :city, :state, :zipcode, :number, :user_id])
   end
  
-  def find_customer
-    @user = User.find_by("id = ? OR phone_number = ? Or email = ?",  id, phone, email)
-  end
-
-  def phone
-     params[:phone_number]  
-  end
-
-  def id
-    params[:id]
-  end
-
-  def email
-     params[:email]
-  end
 end

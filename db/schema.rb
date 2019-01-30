@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190121063924) do
+ActiveRecord::Schema.define(version: 20190125173334) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,61 +29,24 @@ ActiveRecord::Schema.define(version: 20190121063924) do
     t.index ["user_id"], name: "index_addresses_on_user_id"
   end
 
-  create_table "breakfasts", force: :cascade do |t|
+  create_table "menu_items", force: :cascade do |t|
     t.string "name"
     t.string "description"
     t.float "price"
     t.boolean "availability"
     t.integer "section"
+    t.integer "menu_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "brunches", force: :cascade do |t|
+  create_table "menus", force: :cascade do |t|
     t.string "name"
     t.string "description"
     t.float "price"
     t.boolean "availability"
     t.integer "section"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "dinners", force: :cascade do |t|
-    t.string "name"
-    t.string "description"
-    t.float "price"
-    t.boolean "availability"
-    t.integer "section"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "happy_hours", force: :cascade do |t|
-    t.string "name"
-    t.string "description"
-    t.float "price"
-    t.boolean "availability"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "latenights", force: :cascade do |t|
-    t.string "name"
-    t.string "description"
-    t.float "price"
-    t.boolean "availability"
-    t.integer "section"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "lunches", force: :cascade do |t|
-    t.string "name"
-    t.string "description"
-    t.float "price"
-    t.boolean "availability"
-    t.integer "section"
+    t.integer "menu_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -1,6 +1,4 @@
-Rails.application.routes.draw do  
-
-  get 'order_items/new'
+  Rails.application.routes.draw do  
 
   namespace :customer do
     get '/login',  to: 'sessions#new'
@@ -29,11 +27,6 @@ Rails.application.routes.draw do
     get '/showcustomer', to: 'users#show'
     get '/search_customer', to: 'users#search_form'
      
-    get '/addmenuitem',    to: 'dashboard#add_new_menu_items'
-    get '/updatemenuitem', to: 'dashboard#update_menu_items'
-    get '/searchmenuitem', to: 'dashboard#search_menu_items'
-    get '/deletemenuitem', to: 'dashboard#delete_menu_items'
-    
     resources :users, except: [:new, :create, :index, :edit, :update]
     resources :account_activations, only: [:edit]
     resources :password_resets,     only: [:new, :create, :edit, :update]
@@ -50,39 +43,26 @@ Rails.application.routes.draw do
   get  '/offers', to: 'static_pages#offers'
   get  '/bagged', to: 'static_pages#bagged'
 
-  get '/breakfast/menu', to: 'breakfasts#menu'
-  resources :breakfasts, except: [:index]
-  get '/search_breakfast', to:  'breakfasts#search_form'
-  get '/breakfast_profile', to: 'breakfasts#show'
-  
-
-  get '/lunch/menu', to: 'lunches#menu'
-  resources :lunches, except: [:index]
-  get '/search_lunch', to: 'lunches#search_form'
-  get '/lunch_profile', to: 'lunches#show'
-
-  get '/happyhour/menu', to: 'happy_hours#menu'
-  resources :happy_hours, except: [:index]
-  get '/search_happyhour', to: 'happy_hours#search_form'
-  get '/happyhour_profile', to: 'happy_hours#show'
-
-  get 'dinner/menu', to: 'dinners#menu'
-  resources :dinners, except: [:index]
-  get '/search_dinner', to: 'dinners#search_form'
-  get '/dinner_profile', to: 'dinners#show'
-
-  get 'latenight/menu', to: 'latenights#menu'
-  resources :latenights, except: [:index]
-  get '/search_latenight', to: 'latenights#search_form'
-  get '/latenight_profile', to: 'latenights#show'
-
-  get 'brunch/menu', to: 'brunches#menu'
-  resources :brunches, except: [:index]
-  get '/search_brunch',  to: 'brunches#search_form'
-  get '/brunch_profile', to: 'brunches#show'
 
   resource :cart, only: [:show]
   resources :order_items
+
   
+  get '/menu', to: 'menus#menu' 
+
+  get 'admin/addmenuitem',    to: 'menu_items#new'
+  get 'admin/updatemenuitem', to: 'menu_items#search_form'
+  get 'admin/searchmenuitem', to: 'menu_items#search_form'
+  get 'admin/deletemenuitem', to: 'menu_items#search-form'
+  get 'admin/item_profile',   to: 'menu_items#show'  
+  resources :menu_items, except: [:index, :new]
+
+
+  get '/breakfast_menu', to: 'menus#breakfast_menu'
+  get '/lunch_menu', to: 'menus#lunch_menu'
+  get '/happy_hour_menu', to: 'menus#happy_hour_menu'
+  get '/dinner_menu', to: 'menus#dinner_menu'
+  get '/latenight_menu', to: 'menus#latenight_menu'
+  get '/brunch_menu', to: 'menus#brunch_menu'
 
 end
