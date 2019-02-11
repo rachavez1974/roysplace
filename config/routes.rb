@@ -36,7 +36,7 @@
   
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  root 'static_pages#home'
+  root 'menus#current_menu'
   get  '/about', to: 'static_pages#about', as: 'about'
   get  '/contact', to: 'static_pages#contact'
   get  '/menus', to: 'static_pages#menus'
@@ -58,6 +58,7 @@
   resources :menu_items, except: [:index, :new]
 
 
+  get '/current_menu', to: 'menus#current_menu'
   get '/breakfast_menu', to: 'menus#breakfast_menu'
   get '/lunch_menu', to: 'menus#lunch_menu'
   get '/happy_hour_menu', to: 'menus#happy_hour_menu'

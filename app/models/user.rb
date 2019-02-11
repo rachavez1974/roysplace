@@ -90,6 +90,10 @@ class User < ApplicationRecord
     reset_sent_at < 2.hours.ago
   end
 
+  def self.is_admin?(user)
+    user.admin? unless user.nil?
+  end 
+
   private
   # makes all emails for User lowercase 
   def downcase_email

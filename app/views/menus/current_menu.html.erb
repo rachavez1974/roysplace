@@ -1,0 +1,23 @@
+<div class="row">
+  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center
+  ">
+  <div class="tit2 t-center">
+    <% case @menus[0].menu_type %>
+      <% when "Breakfast" %>
+        <h1 class="page-title">Breakfast Menu</h1>
+      <% when "Lunch" %>
+        <h1 class="page-title">Lunch Menu</h1>
+      <% when "Happyhour" %>
+        <h1 class="page-title">Happy Hour Menu, only available in restaurant</h1>
+         <%=  render 'menus/partials_menu_sections/happy_hour_menu' %>
+      <% when "Dinner" %>
+        <h1 class="page-title">Dinner Menu</h1>
+      <% when "Latenight" %>
+        <h1 class="page-title">Late Night Menu</h1>
+      <% when "Brunch" %>
+        <h1 class="page-title">Brunch Menu</h1>
+      <% end %>
+  </div>
+</div>
+</div>
+<%= render 'menus/partials_menu_sections/starters_row' %>

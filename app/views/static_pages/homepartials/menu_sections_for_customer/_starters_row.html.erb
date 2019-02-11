@@ -1,4 +1,5 @@
-  <!-- Starters menu -->
+  
+<!-- Starters menu -->
   <section class="section-mainmenu p-t-110 p-b-70 bg1-pattern">
     <div class="container">
       <div class="row">
@@ -9,7 +10,7 @@
             </h3>
             <br>
 
-            <% @menus.each do |item| %>
+            <% @customer_menu.each do |item| %>
             <% if item.section == "Starters"%>
             <!-- Item mainmenu -->
             <div class="item-mainmenu m-b-36">
@@ -17,9 +18,7 @@
                 <a href="#" class="name-item-mainmenu txt20">
                   <%= item.name %>
                 </a>
-
                 <div class="line-item-mainmenu bg3-pattern"></div>
-
                 <div class="price-item-mainmenu txt22">
                   <%= number_to_currency item.price%>  
                 </div>
@@ -27,9 +26,17 @@
               <span class="info-item-mainmenu txt23">
                 <%= item.description %>
               </span>
-              <%= link_to "Edit Item", edit_menu_item_path(item), class: "btn btn-sm btn-primary" %>
-              <%= link_to "Delete Item", item, method: :delete,
-                                  data: { confirm: "You sure?" }, class: "btn btn-sm btn-primary" %>
+              <% if is_next_day? %>
+                <% if item.availability == false %>
+                <div class="d-inline p-2 bg-primary text-white text-center">ITEM NOT AVAILABLE AT THIS TIME!</div>
+                <% else %>
+                <div class="d-inline p-2 bg-primary text-white text-center">NO DELIVERIES BETWEEN 12AM - 2AM!</div>
+                <% end %> 
+              <% elsif item.availability %>
+              <p><%= button_to "Add to Cart", "#", class: "btn btn-sm btn-primary"  %></p>
+              <% else %>               
+                <div class="d-inline p-2 bg-primary text-white text-center">ITEM NOT AVAILABLE AT THIS TIME!</div>
+              <% end %> 
             </div>
             <% end %>
             <% end %>
@@ -39,7 +46,7 @@
       </div>
     </div>
   </section>
-  <%= render 'menus/partials_menu_sections_for_admin/classics_row' %>
+        <%= render 'static_pages/homepartials/menu_sections_for_customer/classics_row' %>
 
 
 

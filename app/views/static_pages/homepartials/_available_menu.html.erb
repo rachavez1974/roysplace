@@ -1,15 +1,18 @@
+
+
 <% if breakfast_time? %>
-  <%= render 'menus/partials_menu_for_customer/breakfast_menu' %>
+  <%= render 'static_pages/homepartials/breakfast_menu' %>
 <% elsif lunch_time? %>
-  <%= render 'menus/partials_menu_for_customer/lunch_menu' %>
+  <%= render 'static_pages/homepartials/lunch_menu' %>
 <% elsif happy_hour_time? && dinner_time? %>
-  <%= render 'menus/partials_menu_for_customer/happyhour_menu' %>
+  <%= render 'static_pages/homepartials/happyhour_menu' %>
 <% elsif dinner_time? %>
-  <%= render 'menus/partials_menu_for_customer/dinner_menu' %>
+  <%= render 'static_pages/homepartials/dinner_menu' %>
 <% elsif latenight_time? %>
-  <%= render 'menus/partials_menu_for_customer/latenight_menu' %>    
+  <%= render 'static_pages/homepartials/latenight_menu' %>    
 <% else %>
   <% if brunch_time? %>
-    <%= render 'menus/partials_menu_for_customer/brunch_menu' %>
+    <%= render 'static_pages/homepartials/brunch_menu' %>
   <% end %>
 <% end %>
+
