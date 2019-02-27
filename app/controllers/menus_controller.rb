@@ -40,7 +40,6 @@
         @menu_items = MenuItem.get_menu_items(menu)
       end  
     end
-    
   resolve_layout
   end
 
