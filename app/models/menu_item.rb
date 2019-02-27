@@ -12,7 +12,7 @@ class MenuItem < ApplicationRecord
 
 def self.get_menu_items(*item_menu_type)
   MenuItem.where("current_menu = ? AND (menu_type = ? OR menu_type = ?)", 
-  true, item_menu_type.first.to_i, item_menu_type.last.to_i)
+  true, item_menu_type[0].to_i, item_menu_type[1].to_i)
 end
 
   private
