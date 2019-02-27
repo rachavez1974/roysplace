@@ -11,7 +11,7 @@ class MenuItem < ApplicationRecord
   validates :menu_type, presence: true, if: :menu_type_present?
 
 def self.get_menu_items(*item_menu_type)
-  MenuItem.where("current_menu = ? AND (menu_type = ? OR menu_type = ?)", 
+  MenuItem.where("current_menu = ? AND (menu_type = ?)", 
   true, item_menu_type[0].to_i, item_menu_type[1].to_i)
 end
 
