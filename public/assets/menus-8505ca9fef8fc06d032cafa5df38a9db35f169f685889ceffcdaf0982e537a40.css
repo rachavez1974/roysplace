@@ -1,0 +1,3062 @@
+/*------------------------------------------------------------------
+Project:  Pato
+Version:  
+Last change:  
+Assigned to:  Kevin Nguyen
+Primary use:  Company
+-------------------------------------------------------------------*/
+/*------------------------------------------------------------------
+[LAYOUT]
+
+* body
+  + Header / header
+  + Page Content / .page-content .name-page
+        + Section Layouts / section .name-section
+        ...
+  + Footer / footer
+
+-------------------------------------------------------------------*/
+/*------------------------------------------------------------------
+[COLOR CODES]
+
+# Text Color      :  
+# Primary Color 01:  
+# Primary Color 02:   
+# Primary Color 03:  
+
+------------------------------------------------------------------*/
+/*------------------------------------------------------------------
+[TYPOGRAPHY]
+
+Body            : 16px/1.6 '', Arial, sans-serif;
+Title           : 18px/1.6 '', Arial, sans-serif;
+Paragrap        : 18px/1.6 '', Arial, sans-serif;
+Input, textarea : 14px/1.6 '', Arial, sans-serif;
+-------------------------------------------------------------------*/
+/*[ FONT ]
+///////////////////////////////////////////////////////////
+*/
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,700");
+@import url("https://fonts.googleapis.com/css?family=Courgette");
+@import url("https://fonts.googleapis.com/css?family=Poppins:300,400,500,700");
+@import url("https://fonts.googleapis.com/css?family=Noto+Sans");
+@font-face {
+  font-family: Montserrat-Regular;
+  src: url("../fonts/montserrat/Montserrat-Regular.ttf");
+}
+@font-face {
+  font-family: Montserrat-Bold;
+  src: url("../fonts/montserrat/Montserrat-Bold.ttf");
+}
+@font-face {
+  font-family: Courgette-Regular;
+  src: url("../fonts/courgette/Courgette-Regular.ttf");
+}
+@font-face {
+  font-family: Poppins-Regular;
+  src: url("../fonts/poppins/Poppins-Regular.ttf");
+}
+@font-face {
+  font-family: Poppins-Medium;
+  src: url("../fonts/poppins/Poppins-Medium.ttf");
+}
+@font-face {
+  font-family: Poppins-Bold;
+  src: url("../fonts/poppins/Poppins-Bold.ttf");
+}
+@font-face {
+  font-family: Poppins-Light;
+  src: url("../fonts/poppins/Poppins-Light.ttf");
+}
+@font-face {
+  font-family: NotoSans-Regular;
+  src: url("../fonts/notosans/NotoSans-Regular.ttf");
+}
+/*[ RESTYLE TAG ]
+///////////////////////////////////////////////////////////
+*/
+/* line 100, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+/* line 106, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+body, html {
+  height: 100%;
+  font-family: Montserrat, sans-serif;
+  font-weight: 400;
+}
+
+/* ------------------------------------ */
+/* line 113, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+a {
+  font-family: Montserrat;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 1.7;
+  color: #666666;
+  margin: 0px;
+  transition: all 0.4s;
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+}
+
+/* line 126, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+a:focus {
+  outline: none !important;
+}
+
+/* line 130, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+a:hover {
+  text-decoration: none;
+  color: #ec1d25;
+}
+
+/* ------------------------------------ */
+/* line 136, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+h1, h2, h3, h4, h5, h6 {
+  margin: 0px;
+}
+
+/* line 140, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+p {
+  font-family: Montserrat;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 1.7;
+  color: #666666;
+  margin: 0px;
+}
+
+/* line 149, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+ul, li {
+  margin: 0px;
+  list-style-type: none;
+}
+
+/* ------------------------------------ */
+/* line 156, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+input {
+  outline: none;
+  border: none !important;
+}
+
+/* line 161, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+textarea {
+  outline: none;
+}
+
+/* line 165, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+textarea:focus, input:focus {
+  border-color: transparent !important;
+  box-shadow: 0 0 0px 2px #ec1d25;
+  -moz-box-shadow: 0 0 0px 2px #ec1d25;
+  -webkit-box-shadow: 0 0 0px 2px #ec1d25;
+  -o-box-shadow: 0 0 0px 2px #ec1d25;
+  -ms-box-shadow: 0 0 0px 2px #ec1d25;
+}
+
+/* line 174, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+input:focus::-webkit-input-placeholder {
+  color: transparent;
+}
+
+/* line 175, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+input:focus:-moz-placeholder {
+  color: transparent;
+}
+
+/* line 176, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+input:focus::-moz-placeholder {
+  color: transparent;
+}
+
+/* line 177, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+input:focus:-ms-input-placeholder {
+  color: transparent;
+}
+
+/* line 179, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+textarea:focus::-webkit-input-placeholder {
+  color: transparent;
+}
+
+/* line 180, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+textarea:focus:-moz-placeholder {
+  color: transparent;
+}
+
+/* line 181, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+textarea:focus::-moz-placeholder {
+  color: transparent;
+}
+
+/* line 182, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+textarea:focus:-ms-input-placeholder {
+  color: transparent;
+}
+
+/* line 184, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+input::-webkit-input-placeholder {
+  color: #aaaaaa;
+}
+
+/* line 185, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+input:-moz-placeholder {
+  color: #aaaaaa;
+}
+
+/* line 186, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+input::-moz-placeholder {
+  color: #aaaaaa;
+}
+
+/* line 187, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+input:-ms-input-placeholder {
+  color: #aaaaaa;
+}
+
+/* line 189, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+textarea::-webkit-input-placeholder {
+  color: #aaaaaa;
+}
+
+/* line 190, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+textarea:-moz-placeholder {
+  color: #aaaaaa;
+}
+
+/* line 191, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+textarea::-moz-placeholder {
+  color: #aaaaaa;
+}
+
+/* line 192, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+textarea:-ms-input-placeholder {
+  color: #aaaaaa;
+}
+
+/* ------------------------------------ */
+/* line 195, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+button {
+  outline: none !important;
+  border: none;
+  background: transparent;
+}
+
+/* line 201, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+button:hover {
+  cursor: pointer;
+}
+
+/* line 205, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+iframe {
+  border: none !important;
+}
+
+/* ------------------------------------ */
+/* line 211, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.container {
+  max-width: 1200px;
+}
+
+/* line 215, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.slick-slide {
+  outline: none !important;
+}
+
+/*[ LOADDING ]
+///////////////////////////////////////////////////////////
+*/
+/* line 223, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.animsition-loading-1 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+/* line 234, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.cp-spinner {
+  width: 40px;
+  height: 40px;
+  display: inline-block;
+  box-sizing: border-box;
+  position: relative;
+}
+
+/* line 242, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.cp-meter {
+  border-radius: 50%;
+  border-top: solid 6px #ec1d25;
+  border-right: solid 6px #ec1d25;
+  border-bottom: solid 6px #ec1d25;
+  border-left: solid 6px #ec1d25;
+  width: 48px;
+  height: 48px;
+  display: inline-block;
+  box-sizing: border-box;
+}
+
+/* line 254, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.cp-meter:before {
+  border-radius: 3px;
+  content: " ";
+  width: 6px;
+  height: 12px;
+  display: inline-block;
+  box-sizing: border-box;
+  background-color: #ec1d25;
+  position: absolute;
+  top: 5px;
+  left: 16px;
+  transform-origin: center bottom;
+  animation: cp-meter-animate-before 1s linear infinite;
+}
+
+@keyframes cp-meter-animate-before {
+  0% {
+    transform: rotate(-45deg);
+  }
+  100% {
+    transform: rotate(315deg);
+  }
+}
+/*[ BACK TO TOP ]
+///////////////////////////////////////////////////////////
+*/
+/* line 282, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.btn-back-to-top {
+  display: none;
+  position: fixed;
+  width: 40px;
+  height: 40px;
+  bottom: 40px;
+  right: 40px;
+  background-color: black;
+  opacity: 0.5;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  border-radius: 4px;
+  transition: all 0.4s;
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+}
+
+/* line 301, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.symbol-btn-back-to-top {
+  font-size: 22px;
+  color: white;
+  line-height: 1em;
+}
+
+/* line 307, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.btn-back-to-top:hover {
+  opacity: 1;
+  cursor: pointer;
+}
+
+@media (max-width: 576px) {
+  /* line 313, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+  .btn-back-to-top {
+    bottom: 15px;
+    right: 15px;
+  }
+}
+/*[ Calendar ]
+///////////////////////////////////////////////////////////
+*/
+/* line 323, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+td.active {
+  background-color: #ec1d25 !important;
+}
+
+/* line 327, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+input[type="date" i] {
+  padding: 14px;
+}
+
+/* line 331, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.table-condensed td, .table-condensed th {
+  font-size: 14px;
+  font-family: Montserrat;
+  font-weight: 400;
+}
+
+/* line 336, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.daterangepicker {
+  width: 339px;
+  box-shadow: 0px 3px 25px rgba(0, 0, 0, 0.1);
+  border: none;
+  margin-top: 10px;
+}
+
+/* line 342, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.daterangepicker .calendar {
+  max-width: inherit;
+}
+
+/* line 345, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.daterangepicker thead tr th {
+  padding: 10px 0;
+}
+
+/* line 348, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.daterangepicker .table-condensed th select {
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  font-size: 15px;
+  padding: 5px;
+}
+
+/* line 354, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.daterangepicker td {
+  width: 60px;
+  height: 35px;
+}
+
+/*[ Select2 ]
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+/*[ width select ]
+===========================================================*/
+/* line 366, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.select2-container {
+  display: block;
+  max-width: 100%;
+  width: auto !important;
+}
+
+/*[ Select ]
+===========================================================*/
+/* line 374, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.select2-container .select2-selection--single {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  border: 0px solid transparent;
+  border-radius: 10px !important;
+  height: 46px;
+  outline: none;
+}
+
+/* line 384, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.select2-container--focus {
+  border-radius: 10px;
+  box-shadow: 0 0 0px 2px #ec1d25;
+  -moz-box-shadow: 0 0 0px 2px #ec1d25;
+  -webkit-box-shadow: 0 0 0px 2px #ec1d25;
+  -o-box-shadow: 0 0 0px 2px #ec1d25;
+  -ms-box-shadow: 0 0 0px 2px #ec1d25;
+}
+
+/* line 393, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.select2-container--focus .select2-selection--single {
+  border-color: transparent;
+}
+
+/* line 397, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.select2-container--below.select2-container--open {
+  border-radius: 10px;
+  box-shadow: 0 0 0px 2px #ec1d25;
+  -moz-box-shadow: 0 0 0px 2px #ec1d25;
+  -webkit-box-shadow: 0 0 0px 2px #ec1d25;
+  -o-box-shadow: 0 0 0px 2px #ec1d25;
+  -ms-box-shadow: 0 0 0px 2px #ec1d25;
+}
+
+/* line 406, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.select2-container--below.select2-container--open .select2-selection--single {
+  border-color: transparent;
+}
+
+/* line 410, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.select2-container--above.select2-container--open {
+  border-radius: 10px;
+  box-shadow: 0 0 0px 2px #ec1d25;
+  -moz-box-shadow: 0 0 0px 2px #ec1d25;
+  -webkit-box-shadow: 0 0 0px 2px #ec1d25;
+  -o-box-shadow: 0 0 0px 2px #ec1d25;
+  -ms-box-shadow: 0 0 0px 2px #ec1d25;
+}
+
+/* line 419, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.select2-container--above.select2-container--open .select2-selection--single {
+  border-color: transparent;
+}
+
+/*[ in select ]
+===========================================================*/
+/* line 426, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.select2-selection__rendered {
+  font-size: 14px;
+  font-family: Montserrat;
+  font-weight: 400;
+  color: #666666 !important;
+  padding-left: 20px !important;
+}
+
+/* line 434, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.select2-selection__arrow {
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  right: 12px !important;
+}
+
+/*[ dropdown option ]
+===========================================================*/
+/* line 443, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.select2-dropdown {
+  border: none !important;
+  border-radius: 10px !important;
+  overflow: hidden;
+  box-shadow: 0px 3px 25px rgba(0, 0, 0, 0.1);
+  margin-top: 7px;
+}
+
+/* line 450, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.select2-dropdown--above {
+  top: -2px;
+}
+
+/* line 451, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.select2-dropdown--below {
+  top: 2px;
+}
+
+/* line 453, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.select2-container--default .select2-results__option[aria-selected=true],
+.select2-container .select2-results__option--highlighted[aria-selected] {
+  background-color: #ec1d25;
+  color: #fff;
+}
+
+/* line 459, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.select2-results__options {
+  font-size: 14px;
+  font-family: Montserrat;
+  font-weight: 400;
+  color: #666666 !important;
+}
+
+/* line 467, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.select2-search--dropdown .select2-search__field {
+  border: 1px solid #aaa !important;
+  outline: none;
+  font-family: Montserrat;
+  font-weight: 400;
+  font-size: 14px;
+  color: #666666;
+}
+
+/* line 476, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.select2-search--dropdown .select2-search__field:focus {
+  box-shadow: none;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  -o-box-shadow: none;
+  -ms-box-shadow: none;
+}
+
+/*[ Header ]
+///////////////////////////////////////////////////////////
+*/
+/* line 490, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.wrap-menu-header {
+  position: absolute;
+  width: 100%;
+  height: 120px;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  border-top: 5px solid #ec1d25;
+}
+
+/* line 500, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.wrap_header {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* line 514, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.header-fixed .wrap-menu-header {
+  position: fixed;
+  height: 100px;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/*[ Logo ]
+-----------------------------------------------------------
+*/
+/* line 524, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.logo {
+  height: 50px;
+}
+
+/* line 528, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.logo > a {
+  display: block;
+  height: 100%;
+}
+
+/* line 533, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.logo > a > img {
+  width: auto;
+  max-height: 100%;
+  vertical-align: middle;
+}
+
+/*[ Menu ]
+-----------------------------------------------------------
+*/
+/* line 543, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.wrap_menu {
+  height: 100%;
+}
+
+/* line 547, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.menu {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+/* line 558, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.main_menu {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* line 568, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.main_menu li {
+  display: block;
+  position: relative;
+}
+
+/* line 573, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.main_menu > li {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+/* line 580, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.main_menu > li > a {
+  font-family: Montserrat;
+  font-weight: 400;
+  font-size: 14px;
+  text-transform: uppercase;
+  color: white;
+  padding: 15px;
+}
+
+/* line 589, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.header-fixed .main_menu > li > a {
+  color: #222222;
+}
+
+/* line 593, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.main_menu > li:hover > a {
+  color: #ec1d25;
+  text-decoration: none;
+}
+
+/* ------------------------------------ */
+/* line 599, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.sub_menu {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  width: 225px;
+  background-color: white;
+  transform-origin: top left;
+  -webkit-transform: scale(0);
+  -ms-transform: scale(0);
+  -o-transform: scale(0);
+  transform: scale(0);
+  transition: all 0.4s;
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -moz-transition: all 0.34;
+}
+
+/* line 618, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.main_menu > li > .sub_menu {
+  top: 100%;
+  left: 0;
+  position: absolute;
+}
+
+/* line 624, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.main_menu > li:hover .sub_menu {
+  -webkit-transform: scale(1);
+  -ms-transform: scale(1);
+  -o-transform: scale(1);
+  transform: scale(1);
+}
+
+/* line 631, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.sub_menu li:hover > .sub_menu {
+  display: block;
+}
+
+/* line 635, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.sub_menu li {
+  background-color: #f2f2f2;
+  border-top: 1px solid #e0e0e0;
+  transition: all 0.3s;
+  -webkit-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+}
+
+/* line 644, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.sub_menu li:hover {
+  background-color: white;
+}
+
+/* line 648, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.sub_menu li, .sub_menu a {
+  padding: 10px;
+  font-family: Montserrat;
+  font-weight: 400;
+  font-size: 14px;
+  color: #808080;
+}
+
+/* line 656, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.sub_menu > li:hover > a {
+  color: #555555;
+  text-decoration: none;
+}
+
+/*[ Social ]
+-----------------------------------------------------------
+*/
+/* line 665, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.social a {
+  font-size: 15px;
+  color: white;
+}
+
+/* line 670, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.header-fixed .social a {
+  color: #222222;
+}
+
+/* line 674, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.social a:hover {
+  color: #ec1d25;
+}
+
+/* line 678, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.btn-show-sidebar {
+  width: 26px;
+  height: 15px;
+  border-top: 2px solid white;
+  border-bottom: 2px solid white;
+}
+
+/* line 685, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.header-fixed .btn-show-sidebar {
+  border-top: 2px solid #222222;
+  border-bottom: 2px solid #222222;
+}
+
+/* line 690, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.btn-show-sidebar:hover {
+  border-top: 2px solid #ec1d25;
+  border-bottom: 2px solid #ec1d25;
+}
+
+@media (max-width: 1200px) {
+  /* line 696, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+  .main_menu > li {
+    margin-left: 4px;
+    margin-right: 4px;
+  }
+
+  /* line 701, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+  .social {
+    padding-right: 0px;
+  }
+
+  /* line 703, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+  .logo {
+    height: 45px;
+  }
+}
+@media (max-width: 992px) {
+  /* line 709, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+  .wrap_menu {
+    display: none;
+  }
+
+  /* line 713, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+  .wrap_header {
+    height: 100px;
+  }
+}
+/*[ Sidebar ]
+///////////////////////////////////////////////////////////
+*/
+/* line 724, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.sidebar {
+  position: fixed;
+  z-index: 1200;
+  width: 390px;
+  height: 100%;
+  overflow: auto;
+  background-color: white;
+  top: 0;
+  right: -390px;
+}
+
+@media (max-width: 576px) {
+  /* line 736, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+  .sidebar {
+    width: 300px;
+  }
+}
+/* line 739, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.show-sidebar {
+  right: 0px;
+}
+
+/* line 743, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.btn-hide-sidebar {
+  position: absolute;
+  font-size: 20px;
+  color: #111111;
+  padding: 10px;
+  top: 20px;
+  right: 20px;
+}
+
+/* line 752, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.overlay-sidebar {
+  position: fixed;
+  z-index: 1150;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  visibility: hidden;
+}
+
+/* line 762, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.show-overlay-sidebar {
+  visibility: visible;
+  background-color: rgba(0, 0, 0, 0.65);
+}
+
+/* ------------------------------------ */
+/* line 768, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.item-gallery-sidebar {
+  display: block;
+  position: relative;
+  width: calc((100% - 30px) / 3 );
+  margin: 5px;
+}
+
+/* line 775, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.item-gallery-sidebar::after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  transition: all 0.4s;
+}
+
+/* line 789, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.item-gallery-sidebar:hover:after {
+  background-color: rgba(236, 29, 37, 0.7);
+}
+
+@media (max-width: 576px) {
+  /* line 794, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+  .wrap_header {
+    height: 80px;
+  }
+
+  /* line 798, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+  .gallery-sidebar {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+/*[ Slide1 ]
+///////////////////////////////////////////////////////////
+*/
+/*[ Slick1 ]
+-----------------------------------------------------------
+*/
+/* line 813, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.wrap-slick1,
+.wrap-slick2,
+.wrap-slick3 {
+  position: relative;
+}
+
+/* line 819, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.item-slick1,
+.item-slick2,
+.item-slick3 {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+/* line 826, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.item-slick1 {
+  height: 100vh;
+}
+
+/* line 830, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.arrow-slick1, .arrow-slick2, .arrow-slick3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  height: 60px;
+  font-size: 18px;
+  color: white;
+  position: absolute;
+  background-color: black;
+  opacity: 0;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  transform: translateY(-50%);
+  border-radius: 50%;
+  z-index: 200;
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  transition: all 0.4s;
+}
+
+/* line 859, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.wrap-slick1:hover .arrow-slick1,
+.wrap-slick2:hover .arrow-slick2,
+.wrap-slick3:hover .arrow-slick3 {
+  opacity: 0.5;
+}
+
+/* line 865, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.arrow-slick1:hover,
+.arrow-slick2:hover,
+.arrow-slick3:hover {
+  background-color: #ec1d25;
+}
+
+/* line 871, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.next-slick1,
+.next-slick2,
+.next-slick3 {
+  right: 50px;
+  left: auto;
+}
+
+/* line 878, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.prev-slick1,
+.prev-slick2,
+.prev-slick3 {
+  left: 50px;
+  right: auto;
+}
+
+@media (max-width: 576px) {
+  /* line 886, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+  .next-slick1 {
+    right: 15px;
+  }
+
+  /* line 890, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+  .prev-slick1 {
+    left: 15px;
+  }
+}
+/* ------------------------------------ */
+/* line 896, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.wrap-slick1-dots {
+  position: absolute;
+  width: 100%;
+  height: 65px;
+  left: 0;
+  bottom: 0;
+}
+
+/* line 904, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.slick1-dots {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+/* line 915, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.slick1-dots li {
+  padding-left: 3px;
+  padding-right: 3px;
+}
+
+/* line 920, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.slick1-dots li button {
+  display: block;
+  color: transparent;
+  background-color: #958e88;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  transition: all 0.4s;
+}
+
+/* line 937, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.slick1-dots li button:hover {
+  border: 3px solid white;
+  background-color: #d41b22;
+}
+
+/* line 942, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.slick1-dots li.slick-active button {
+  border: 3px solid white;
+  background-color: #d41b22;
+}
+
+/*[ Caption ]
+-----------------------------------------------------------
+*/
+@media (max-width: 768px) {
+  /* line 951, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+  .wrap-content-slide1 .tit1 {
+    font-size: 70px;
+  }
+
+  /* line 955, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+  .wrap-content-slide1 .txt1 {
+    font-size: 60px;
+  }
+}
+@media (max-width: 576px) {
+  /* line 961, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+  .wrap-content-slide1 .tit1 {
+    font-size: 60px;
+  }
+
+  /* line 965, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+  .wrap-content-slide1 .txt1 {
+    font-size: 50px;
+  }
+}
+/*[ Button1 ]
+///////////////////////////////////////////////////////////
+*/
+/* line 974, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.btn1 {
+  background: white;
+  border-radius: 10px;
+}
+
+/* line 979, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.btn1:hover {
+  background-color: #ec1d25;
+  color: white;
+}
+
+/*[ Button3 ]
+///////////////////////////////////////////////////////////
+*/
+/* line 987, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.btn3 {
+  background: #111111;
+  border-radius: 10px;
+}
+
+/* line 992, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.btn3:hover {
+  background-color: #ec1d25;
+  color: white;
+}
+
+/*[ Button2 ]
+///////////////////////////////////////////////////////////
+*/
+/* line 1001, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.btn2 {
+  background-color: white;
+  border-radius: 10px;
+  opacity: 0.9;
+}
+
+/* line 1007, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.btn2:hover {
+  background-color: #ec1d25;
+  color: white;
+}
+
+/*[ Intro ]
+///////////////////////////////////////////////////////////
+*/
+/* line 1018, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.header-intro {
+  background-attachment: fixed;
+  background-position: center 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/*[ Slide2 ]
+///////////////////////////////////////////////////////////
+*/
+/*[ Slick2 ]
+-----------------------------------------------------------
+*/
+/* line 1035, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.arrow-slick2 {
+  top: 53%;
+}
+
+@media (max-width: 576px) {
+  /* line 1041, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+  .next-slick2 {
+    right: 15px;
+  }
+
+  /* line 1045, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+  .prev-slick2 {
+    left: 15px;
+  }
+}
+/* ------------------------------------ */
+/* line 1051, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.wrap-slick2-dots {
+  position: absolute;
+  width: 100%;
+  height: 128px;
+  left: 0;
+  bottom: 0;
+}
+
+/* line 1059, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.slick2-dots {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+/* line 1070, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.slick2-dots li {
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+/* line 1075, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.slick2-dots li button {
+  display: block;
+  color: transparent;
+  background-color: #cccccc;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 1px solid transparent;
+  background-clip: padding-box;
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  transition: all 0.4s;
+}
+
+/* line 1091, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.slick2-dots li button:hover {
+  border: 1px solid #d41b22;
+  background-color: #d41b22;
+}
+
+/* line 1096, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.slick2-dots li.slick-active button {
+  border: 1px solid #d41b22;
+  background-color: #d41b22;
+}
+
+/*[ Slide3 ]
+///////////////////////////////////////////////////////////
+*/
+/*[ Slick3 ]
+-----------------------------------------------------------
+*/
+/* line 1111, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.arrow-slick3 {
+  top: 40%;
+}
+
+@media (max-width: 576px) {
+  /* line 1117, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+  .next-slick3 {
+    right: 15px;
+  }
+
+  /* line 1121, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+  .prev-slick3 {
+    left: 15px;
+  }
+}
+/* ------------------------------------ */
+/* line 1127, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.wrap-slick3-dots {
+  width: 100%;
+  height: 128px;
+}
+
+/* line 1132, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.slick3-dots {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+/* line 1143, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.slick3-dots li {
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+/* line 1148, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.slick3-dots li button {
+  display: block;
+  color: transparent;
+  background-color: #cccccc;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 1px solid transparent;
+  background-clip: padding-box;
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  transition: all 0.4s;
+}
+
+/* line 1165, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.slick3-dots li button:hover {
+  border: 1px solid #d41b22;
+  background-color: #d41b22;
+}
+
+/* line 1170, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.slick3-dots li.slick-active button {
+  border: 1px solid #d41b22;
+  background-color: #d41b22;
+}
+
+/*[ Block2 ]
+///////////////////////////////////////////////////////////
+*/
+/* line 1182, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.blo2 {
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+/* line 1187, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.wrap-pic-blo2 {
+  display: block;
+  width: 50%;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* line 1195, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.wrap-text-blo2 {
+  background-color: white;
+  width: 50%;
+  min-height: 390px;
+}
+
+/* ------------------------------------ */
+/* line 1202, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.effect1 {
+  background-color: #cf2227;
+  opacity: 0.9;
+  position: relative;
+}
+
+/* line 1207, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.effect1 .txt-effect1 {
+  width: 390px;
+  height: 50px;
+  transform-origin: center center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%) rotateZ(90deg);
+  -moz-transform: translate(-50%, -50%) rotateZ(90deg);
+  -ms-transform: translate(-50%, -50%) rotateZ(90deg);
+  -o-transform: translate(-50%, -50%) rotateZ(90deg);
+  transform: translate(-50%, -50%) rotateZ(90deg);
+}
+
+@media (max-width: 992px) {
+  /* line 1222, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+  .blo2 {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* line 1228, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+  .wrap-pic-blo2 {
+    width: 100%;
+    height: 390px;
+  }
+
+  /* line 1233, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+  .wrap-text-blo2 {
+    width: 100%;
+    min-height: 390px;
+  }
+
+  /* line 1238, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+  .time-event {
+    width: 100%;
+    height: auto;
+  }
+
+  /* line 1243, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+  .effect1 .txt-effect1 {
+    width: 100%;
+    height: 50px;
+    padding: 10px;
+    transform-origin: center center;
+    position: unset;
+    -webkit-transform: rotateZ(0deg);
+    -moz-transform: rotateZ(0deg);
+    -ms-transform: rotateZ(0deg);
+    -o-transform: rotateZ(0deg);
+    transform: rotateZ(0deg);
+  }
+}
+@media (max-width: 576px) {
+  /* line 1258, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+  .blo2 {
+    width: 100%;
+  }
+
+  /* line 1262, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+  .wrap-pic-blo2 {
+    width: 100%;
+    height: 364px;
+  }
+}
+/*[ Video ]
+///////////////////////////////////////////////////////////
+*/
+/* line 1273, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.section-video {
+  background-attachment: fixed;
+  background-position: center 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* line 1280, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.content-video {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+/*[ Modal video 01 ]
+-----------------------------------------------------------
+*/
+/* line 1287, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+body {
+  padding-right: 0px !important;
+}
+
+/* line 1288, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.modal {
+  padding: 0px !important;
+  z-index: 1160;
+  overflow-x: hidden;
+  overflow-y: auto !important;
+}
+
+/* line 1294, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.modal-open {
+  overflow-y: scroll;
+}
+
+/* ------------------------------------ */
+/* line 1297, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.modal-backdrop {
+  background-color: transparent;
+}
+
+/* line 1301, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+#modal-video-01 {
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 1250;
+}
+
+/* line 1307, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+#modal-video-01 .modal-dialog {
+  max-width: 100% !important;
+  height: 100% !important;
+  padding: 0;
+  margin: 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+/* line 1323, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.wrap-video-mo-01 {
+  width: 854px;
+  height: auto;
+  position: relative;
+  margin: 15px;
+}
+
+/* line 1330, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.video-mo-01 {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  -webkit-transition: all 2s;
+  -o-transition: all 2s;
+  -moz-transition: all 2s;
+  transition: all 2s;
+}
+
+/* line 1343, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.video-mo-01 iframe {
+  width: 100%;
+  height: 100%;
+}
+
+/* line 1348, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.close-mo-video-01 {
+  font-size: 50px;
+  color: white;
+  opacity: 0.6;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  z-index: 1250;
+  width: 60px;
+  height: 60px;
+  top: 0;
+  right: 0;
+}
+
+/* line 1367, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.close-mo-video-01:hover {
+  cursor: pointer;
+  opacity: 1;
+}
+
+/*[ Blog ]
+///////////////////////////////////////////////////////////
+*/
+/* line 1377, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.time-blog {
+  position: absolute;
+  left: 14px;
+  bottom: 11px;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 3px 15px;
+  font-family: Montserrat;
+  font-weight: 400;
+  font-size: 12px;
+  color: white;
+  border-radius: 4px;
+}
+
+/*[ Gallery footer ]
+///////////////////////////////////////////////////////////
+*/
+/* line 1396, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.item-gallery-footer {
+  display: block;
+  position: relative;
+  width: calc((100% - 50px) / 4 );
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+/* line 1404, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.item-gallery-footer::after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  transition: all 0.4s;
+}
+
+/* line 1418, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.item-gallery-footer:hover:after {
+  background-color: rgba(236, 29, 37, 0.7);
+}
+
+/*[ BG Title Page ]
+///////////////////////////////////////////////////////////
+*/
+/* line 1426, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.bg-title-page {
+  width: 100%;
+  min-height: 545px;
+  padding-left: 15px;
+  padding-right: 15px;
+  background-repeat: no-repeat;
+  background-position: center 0;
+  background-size: cover;
+}
+
+@media (max-width: 576px) {
+  /* line 1437, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+  .bg-title-page .tit6 {
+    font-size: 30px;
+  }
+}
+/*[ Item mainmenu ]
+///////////////////////////////////////////////////////////
+*/
+/* line 1446, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.line-item-mainmenu {
+  flex-grow: 1;
+  height: 2px;
+  margin-bottom: 5px;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+@media (max-width: 576px) {
+  /* line 1455, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+  .line-item-mainmenu {
+    display: none;
+  }
+
+  /* line 1459, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+  .price-item-mainmenu {
+    padding-top: 5px;
+  }
+
+  /* line 1463, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+  .name-item-mainmenu {
+    width: 100%;
+  }
+}
+/*[ Block3 ]
+///////////////////////////////////////////////////////////
+*/
+@media (max-width: 576px) {
+  /* line 1474, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+  .text-blo3 {
+    width: 100%;
+  }
+}
+/*[ Gallery ]
+///////////////////////////////////////////////////////////
+*/
+/* line 1485, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.label-gallery {
+  border-radius: 10px;
+  padding: 2px 11px;
+  margin: 5px 0;
+}
+
+/* line 1491, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.label-gallery:hover {
+  background-color: #111111;
+  color: white;
+}
+
+/* line 1496, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.is-actived {
+  background-color: #111111;
+  color: white;
+}
+
+/* ------------------------------------ */
+/* line 1502, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.wrap-gallery {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* line 1507, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.item-gallery {
+  width: calc( (100% - 140px) / 3 );
+  margin: 30px 15px;
+  position: relative;
+}
+
+/* line 1513, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.overlay-item-gallery {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(236, 29, 37, 0.8);
+  opacity: 0;
+}
+
+/* line 1523, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.overlay-item-gallery:hover {
+  opacity: 1;
+}
+
+/* line 1527, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.btn-show-gallery {
+  font-size: 18px;
+  color: #222222;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: white;
+}
+
+@media (max-width: 768px) {
+  /* line 1537, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+  .item-gallery {
+    width: calc((100% - 110px) / 2);
+  }
+}
+@media (max-width: 576px) {
+  /* line 1543, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+  .item-gallery {
+    width: calc((100% - 30px) / 1);
+  }
+
+  /* line 1546, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+  .wrap-gallery {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+/*[ Pagination ]
+///////////////////////////////////////////////////////////
+*/
+/* line 1556, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.item-pagination {
+  font-family: Montserrat;
+  font-weight: 400;
+  font-size: 13px;
+  color: #808080;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid #e6e6e6;
+  margin: 6px;
+}
+
+/* line 1568, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.item-pagination:hover {
+  background-color: #333333;
+  color: white;
+}
+
+/* line 1573, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.active-pagination {
+  background-color: #333333;
+  color: white;
+}
+
+/*[ Sidebar2 ]
+///////////////////////////////////////////////////////////
+*/
+/*[ Search sidebar2 ]
+-----------------------------------------------------------
+*/
+/* line 1587, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.btn-search-sidebar2 {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 46px;
+  height: 46px;
+  background-color: #333333;
+  color: white;
+  font-size: 18px;
+  box-shadow: 0 0 0px 1px #333333;
+  -moz-box-shadow: 0 0 0px 1px #333333;
+  -webkit-box-shadow: 0 0 0px 1px #333333;
+  -o-box-shadow: 0 0 0px 1px #333333;
+  -ms-box-shadow: 0 0 0px 1px #333333;
+  -webkit-transform: rotateY(180deg);
+  -moz-transform: rotateY(180deg);
+  -ms-transform: rotateY(180deg);
+  -o-transform: rotateY(180deg);
+  transform: rotateY(180deg);
+}
+
+/* line 1610, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.btn-search-sidebar2:hover {
+  color: #ec1d25;
+}
+
+/* line 1614, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.input-search-sidebar2 {
+  width: 100%;
+  height: 100%;
+}
+
+/*[ Block4 ]
+///////////////////////////////////////////////////////////
+*/
+/* line 1624, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.date-blo4 {
+  width: 75px;
+  height: 82px;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  border-radius: 10px;
+  background-color: #ec1d25;
+}
+
+/* line 1634, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+/* line 1640, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+body, html {
+  height: 100%;
+  font-family: Montserrat, sans-serif;
+  font-weight: 400;
+}
+
+/* ------------------------------------ */
+/* line 1647, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+a {
+  font-family: Montserrat;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 1.7;
+  color: #666666;
+  margin: 0px;
+  transition: all 0.4s;
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+}
+
+/* line 1660, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+a:focus {
+  outline: none !important;
+}
+
+/* line 1664, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+a:hover {
+  text-decoration: none;
+  color: #ec1d25;
+}
+
+/* ------------------------------------ */
+/* line 1670, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+h1, h2, h3, h4, h5, h6 {
+  margin: 0px;
+}
+
+/* line 1674, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+p {
+  font-family: Montserrat;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 1.7;
+  color: #666666;
+  margin: 0px;
+}
+
+/*[ Menu ]
+-----------------------------------------------------------
+*/
+/* line 1687, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.wrap_menu {
+  height: 100%;
+}
+
+/* line 1691, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.menu {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+/* line 1702, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.main_menu {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* line 1712, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.main_menu li {
+  display: block;
+  position: relative;
+}
+
+/* line 1717, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.main_menu > li {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+/* line 1724, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.main_menu > li > a {
+  font-family: Montserrat;
+  font-weight: 400;
+  font-size: 14px;
+  text-transform: uppercase;
+  color: white;
+  padding: 15px;
+}
+
+/* line 1733, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.header-fixed .main_menu > li > a {
+  color: #222222;
+}
+
+/* line 1737, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.main_menu > li:hover > a {
+  color: #ec1d25;
+  text-decoration: none;
+}
+
+/* ------------------------------------ */
+/* line 1743, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.sub_menu {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  width: 225px;
+  background-color: white;
+  transform-origin: top left;
+  -webkit-transform: scale(0);
+  -ms-transform: scale(0);
+  -o-transform: scale(0);
+  transform: scale(0);
+  transition: all 0.4s;
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -moz-transition: all 0.34;
+}
+
+/* line 1762, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.main_menu > li > .sub_menu {
+  top: 100%;
+  left: 0;
+  position: absolute;
+}
+
+/* line 1768, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.main_menu > li:hover .sub_menu {
+  -webkit-transform: scale(1);
+  -ms-transform: scale(1);
+  -o-transform: scale(1);
+  transform: scale(1);
+}
+
+/* line 1775, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.sub_menu li:hover > .sub_menu {
+  display: block;
+}
+
+/* line 1779, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.sub_menu li {
+  background-color: #f2f2f2;
+  border-top: 1px solid #e0e0e0;
+  transition: all 0.3s;
+  -webkit-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+}
+
+/* line 1788, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.sub_menu li:hover {
+  background-color: white;
+}
+
+/* line 1792, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.sub_menu li, .sub_menu a {
+  padding: 10px;
+  font-family: Montserrat;
+  font-weight: 400;
+  font-size: 14px;
+  color: #808080;
+}
+
+/* line 1800, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.sub_menu > li:hover > a {
+  color: #555555;
+  text-decoration: none;
+}
+
+/*[ Item mainmenu ]
+///////////////////////////////////////////////////////////
+*/
+/* line 1818, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.line-item-mainmenu {
+  flex-grow: 1;
+  height: 2px;
+  margin-bottom: 5px;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+@media (max-width: 576px) {
+  /* line 1827, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+  .line-item-mainmenu {
+    display: none;
+  }
+
+  /* line 1831, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+  .price-item-mainmenu {
+    padding-top: 5px;
+  }
+
+  /* line 1835, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+  .name-item-mainmenu {
+    width: 100%;
+  }
+}
+/* line 1847, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.flex-w {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -moz-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  -o-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+/* ------------------------------------ */
+/* line 1861, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.flex-l {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: flex-start;
+}
+
+/* line 1870, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.flex-r {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* line 1879, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.flex-c {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: center;
+}
+
+/* line 1888, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.flex-sa {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: space-around;
+}
+
+/* line 1897, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.flex-sb {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* ------------------------------------ */
+/* line 1907, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.flex-t {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-align-items: flex-start;
+  align-items: flex-start;
+}
+
+/* line 1917, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.flex-b {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-align-items: flex-end;
+  align-items: flex-end;
+}
+
+/* line 1927, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.flex-m {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-align-items: center;
+  align-items: center;
+}
+
+/* line 1937, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.flex-str {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-align-items: stretch;
+  align-items: stretch;
+}
+
+/* ------------------------------------ */
+/* line 1948, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.flex-row {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -moz-flex-direction: row;
+  -ms-flex-direction: row;
+  -o-flex-direction: row;
+  flex-direction: row;
+}
+
+/* line 1961, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.flex-row-rev {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row-reverse;
+  -moz-flex-direction: row-reverse;
+  -ms-flex-direction: row-reverse;
+  -o-flex-direction: row-reverse;
+  flex-direction: row-reverse;
+}
+
+/* line 1974, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.flex-col {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  -ms-flex-direction: column;
+  -o-flex-direction: column;
+  flex-direction: column;
+}
+
+/* line 1987, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.flex-col-rev {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column-reverse;
+  -moz-flex-direction: column-reverse;
+  -ms-flex-direction: column-reverse;
+  -o-flex-direction: column-reverse;
+  flex-direction: column-reverse;
+}
+
+/* ------------------------------------ */
+/* line 2001, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.flex-c-m {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: center;
+  -ms-align-items: center;
+  align-items: center;
+}
+
+/* line 2012, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.flex-c-t {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: center;
+  -ms-align-items: flex-start;
+  align-items: flex-start;
+}
+
+/* line 2023, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.flex-c-b {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: center;
+  -ms-align-items: flex-end;
+  align-items: flex-end;
+}
+
+/* line 2034, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.flex-c-str {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: center;
+  -ms-align-items: stretch;
+  align-items: stretch;
+}
+
+/* line 2045, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.flex-l-m {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: flex-start;
+  -ms-align-items: center;
+  align-items: center;
+}
+
+/* line 2056, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.flex-r-m {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: flex-end;
+  -ms-align-items: center;
+  align-items: center;
+}
+
+/* line 2067, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.flex-sa-m {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: space-around;
+  -ms-align-items: center;
+  align-items: center;
+}
+
+/* line 2078, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.flex-sb-m {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: space-between;
+  -ms-align-items: center;
+  align-items: center;
+}
+
+/* ------------------------------------ */
+/* line 2090, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.flex-col-l {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  -ms-flex-direction: column;
+  -o-flex-direction: column;
+  flex-direction: column;
+  -ms-align-items: flex-start;
+  align-items: flex-start;
+}
+
+/* line 2105, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.flex-col-r {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  -ms-flex-direction: column;
+  -o-flex-direction: column;
+  flex-direction: column;
+  -ms-align-items: flex-end;
+  align-items: flex-end;
+}
+
+/* line 2120, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.flex-col-c {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  -ms-flex-direction: column;
+  -o-flex-direction: column;
+  flex-direction: column;
+  -ms-align-items: center;
+  align-items: center;
+}
+
+/* line 2135, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.flex-col-l-m {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  -ms-flex-direction: column;
+  -o-flex-direction: column;
+  flex-direction: column;
+  -ms-align-items: flex-start;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+/* line 2151, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.flex-col-r-m {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  -ms-flex-direction: column;
+  -o-flex-direction: column;
+  flex-direction: column;
+  -ms-align-items: flex-end;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+/* line 2167, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.flex-col-c-m {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  -ms-flex-direction: column;
+  -o-flex-direction: column;
+  flex-direction: column;
+  -ms-align-items: center;
+  align-items: center;
+  justify-content: center;
+}
+
+/* line 2183, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.flex-col-str {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  -ms-flex-direction: column;
+  -o-flex-direction: column;
+  flex-direction: column;
+  -ms-align-items: stretch;
+  align-items: stretch;
+}
+
+/* line 2198, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.flex-col-sb {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  -ms-flex-direction: column;
+  -o-flex-direction: column;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* ------------------------------------ */
+/* line 2213, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.flex-col-rev-l {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column-reverse;
+  -moz-flex-direction: column-reverse;
+  -ms-flex-direction: column-reverse;
+  -o-flex-direction: column-reverse;
+  flex-direction: column-reverse;
+  -ms-align-items: flex-start;
+  align-items: flex-start;
+}
+
+/* line 2228, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.flex-col-rev-r {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column-reverse;
+  -moz-flex-direction: column-reverse;
+  -ms-flex-direction: column-reverse;
+  -o-flex-direction: column-reverse;
+  flex-direction: column-reverse;
+  -ms-align-items: flex-end;
+  align-items: flex-end;
+}
+
+/* line 2243, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.flex-col-rev-c {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column-reverse;
+  -moz-flex-direction: column-reverse;
+  -ms-flex-direction: column-reverse;
+  -o-flex-direction: column-reverse;
+  flex-direction: column-reverse;
+  -ms-align-items: center;
+  align-items: center;
+}
+
+/* line 2258, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.flex-col-rev-str {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column-reverse;
+  -moz-flex-direction: column-reverse;
+  -ms-flex-direction: column-reverse;
+  -o-flex-direction: column-reverse;
+  flex-direction: column-reverse;
+  -ms-align-items: stretch;
+  align-items: stretch;
+}
+
+/*[ Absolute ]
+-----------------------------------------------------------
+*/
+/* line 2277, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.ab-c-m {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+/* line 2288, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.ab-c-t {
+  position: absolute;
+  top: 0px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+
+/* line 2299, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.ab-c-b {
+  position: absolute;
+  bottom: 0px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+
+/* line 2310, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.ab-l-m {
+  position: absolute;
+  left: 0px;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+/* line 2321, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.ab-r-m {
+  position: absolute;
+  right: 0px;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+/* line 2332, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.ab-t-l {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+/* line 2338, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.ab-t-r {
+  position: absolute;
+  right: 0px;
+  top: 0px;
+}
+
+/* line 2344, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.ab-b-l {
+  position: absolute;
+  left: 0px;
+  bottom: 0px;
+}
+
+/* line 2350, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.ab-b-r {
+  position: absolute;
+  right: 0px;
+  bottom: 0px;
+}
+
+/*=========================================================
+TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT
+=========================================================*/
+/*[ Title ]
+-----------------------------------------------------------
+*/
+/* line 2366, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.tit1 {
+  font-family: Poppins;
+  font-weight: 700;
+  font-size: 90px;
+  line-height: 1.1;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 10px;
+  word-spacing: 10px;
+}
+
+/* line 2377, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.tit2 {
+  font-family: Courgette;
+  font-size: 30px;
+  line-height: 1.2;
+  color: #d61c22;
+}
+
+/* line 2384, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.tit3 {
+  font-family: Poppins;
+  font-weight: 700;
+  font-size: 50px;
+  line-height: 1.2;
+  color: #222222;
+  text-transform: uppercase;
+  letter-spacing: 6px;
+}
+
+/* line 2394, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.tit4 {
+  font-family: Poppins;
+  font-weight: 700;
+  font-size: 50px;
+  line-height: 1.2;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 10px;
+  word-spacing: 6px;
+}
+
+/* line 2405, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.tit5 {
+  font-family: Poppins;
+  font-weight: 700;
+  font-size: 50px;
+  line-height: 1.2;
+  color: #222222;
+  text-transform: uppercase;
+  letter-spacing: 10px;
+  word-spacing: 8px;
+}
+
+/* line 2416, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.tit6 {
+  font-family: Poppins;
+  font-weight: 700;
+  font-size: 50px;
+  line-height: 1.2;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 6px;
+  word-spacing: 6px;
+}
+
+/* line 2427, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.tit7 {
+  font-family: Poppins;
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 1.2;
+  color: #222222;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
+/* line 2437, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.tit8 {
+  font-family: Poppins;
+  font-weight: 700;
+  font-size: 50px;
+  line-height: 1.2;
+  color: #222222;
+  text-transform: uppercase;
+  letter-spacing: 11px;
+}
+
+/* line 2447, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.tit9 {
+  font-family: Poppins;
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 1.2;
+  color: #222222;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
+/* line 2457, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.tit10 {
+  font-family: Poppins;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 1.2;
+  color: #222222;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
+/*[ Text ]
+-----------------------------------------------------------
+*/
+/* line 2470, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.txt1 {
+  font-family: Courgette;
+  font-size: 60px;
+  line-height: 1.1;
+  color: white;
+}
+
+/* line 2477, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.txt2 {
+  font-family: Poppins;
+  font-weight: 700;
+  font-size: 90px;
+  line-height: 1.1;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 10px;
+}
+
+/* line 2487, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.txt3 {
+  font-family: Montserrat;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.1;
+  color: #ec1d25;
+  text-transform: uppercase;
+}
+
+/* line 2496, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.txt4 {
+  font-family: Montserrat;
+  font-weight: 400;
+  font-size: 12px;
+  color: #222222;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* line 2505, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.txt5 {
+  font-family: Poppins;
+  font-weight: 500;
+  font-size: 22px;
+  color: #333333;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
+/* line 2514, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.txt6 {
+  font-family: Montserrat;
+  font-weight: 400;
+  font-size: 12px;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* line 2523, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.txt7 {
+  font-family: Montserrat;
+  font-weight: 700;
+  font-size: 50px;
+  color: #ec1d25;
+  line-height: 1.1;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
+/* line 2533, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.txt8 {
+  font-family: Montserrat;
+  font-weight: 700;
+  font-size: 12px;
+  color: #999999;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* line 2542, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.txt9 {
+  font-family: Montserrat;
+  font-weight: 400;
+  font-size: 15px;
+  color: #555555;
+}
+
+/* line 2549, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.txt10 {
+  font-family: Montserrat;
+  font-weight: 400;
+  font-size: 14px;
+  color: #666666;
+}
+
+/* line 2556, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.txt11 {
+  font-family: Montserrat;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.1;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* line 2566, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.txt12 {
+  font-family: Montserrat;
+  font-weight: 400;
+  font-size: 18px;
+  color: #666666;
+  line-height: 1.7;
+}
+
+/* line 2574, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.txt13 {
+  font-family: Poppins;
+  font-weight: 500;
+  font-size: 18px;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* line 2583, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.txt14 {
+  font-family: Montserrat;
+  font-weight: 400;
+  font-size: 13px;
+  color: #999999;
+  line-height: 1.7;
+}
+
+/* line 2591, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.txt15 {
+  font-family: Montserrat;
+  font-weight: 400;
+  font-size: 13px;
+  color: #ec1d25;
+  line-height: 1.7;
+}
+
+/* line 2599, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.txt16 {
+  font-family: Montserrat;
+  font-weight: 400;
+  font-size: 12px;
+  color: #555555;
+}
+
+/* line 2606, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.txt17 {
+  font-family: NotoSans;
+  font-size: 14px;
+  line-height: 1.7;
+  color: #999999;
+}
+
+/* line 2613, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.txt18 {
+  font-family: NotoSans;
+  font-size: 14px;
+  line-height: 1.7;
+  color: #cccccc;
+}
+
+/* line 2620, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.txt19 {
+  font-family: Montserrat;
+  font-weight: 400;
+  font-size: 14px;
+  color: #222222;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+/* line 2629, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.txt20 {
+  font-family: Courier New;
+  font-weight: 500;
+  font-size: 22px;
+  color: #222222;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
+/* line 2638, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.txt21 {
+  font-family: Poppins;
+  font-weight: 300;
+  font-size: 18px;
+  color: #333333;
+  line-height: 1.4;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* line 2648, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.txt22 {
+  font-family: Montserrat;
+  font-weight: 400;
+  font-size: 22px;
+  color: #333333;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+/* line 2657, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.txt23 {
+  font-family: Montserrat;
+  font-weight: 400;
+  font-size: 18px;
+  color: #666666;
+  line-height: 1.7;
+}
+
+/* line 2665, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.txt24 {
+  font-family: Montserrat;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 1.7;
+  color: #ec1d25;
+}
+
+/* line 2673, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.txt25 {
+  font-family: Montserrat;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 1.7;
+  color: #222222;
+}
+
+/* line 2681, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.txt26 {
+  font-family: Poppins;
+  font-weight: 500;
+  font-size: 15px;
+  color: #333333;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* line 2690, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.txt27 {
+  font-family: Montserrat;
+  font-weight: 400;
+  font-size: 12px;
+  color: #222222;
+  line-height: 1.5;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* line 2700, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.txt28 {
+  font-family: Poppins;
+  font-weight: 500;
+  font-size: 12px;
+  color: #222222;
+  line-height: 1.5;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  word-spacing: 2px;
+}
+
+/* line 2711, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.txt29 {
+  font-family: Montserrat;
+  font-weight: 400;
+  font-size: 12px;
+  color: #999999;
+  line-height: 1.5;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* line 2721, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.txt30 {
+  font-family: Montserrat;
+  font-weight: 700;
+  font-size: 39px;
+  color: white;
+  line-height: 1;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* line 2731, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.txt31 {
+  font-family: Montserrat;
+  font-weight: 400;
+  font-size: 12px;
+  color: white;
+}
+
+/* line 2738, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.txt32 {
+  font-family: Montserrat;
+  font-weight: 400;
+  font-size: 12px;
+  color: #808080;
+  line-height: 1.5;
+}
+
+/* line 2746, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.txt33 {
+  font-family: Poppins;
+  font-weight: 500;
+  font-size: 22px;
+  color: #222222;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
+/* line 2755, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.txt34 {
+  font-family: Poppins;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1.4;
+  color: #333333;
+  letter-spacing: 2px;
+}
+
+/* line 2764, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+.txt35 {
+  font-family: Montserrat;
+  font-weight: 400;
+  font-size: 12px;
+  color: #666666;
+  text-transform: uppercase;
+  line-height: 1.8;
+}
+
+/*[ SM ]
+-----------------------------------------------------------
+*/
+@media (max-width: 576px) {
+  /* line 2780, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+  .flex-col-l-sm {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: column;
+    -moz-flex-direction: column;
+    -ms-flex-direction: column;
+    -o-flex-direction: column;
+    flex-direction: column;
+    -ms-align-items: flex-start;
+    align-items: flex-start;
+  }
+
+  /* line 2795, /Users/rchavez/workspace/roysplace/app/assets/stylesheets/menus.scss */
+  .flex-col-c-sm {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: column;
+    -moz-flex-direction: column;
+    -ms-flex-direction: column;
+    -o-flex-direction: column;
+    flex-direction: column;
+    -ms-align-items: center;
+    align-items: center;
+  }
+}

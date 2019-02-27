@@ -13,7 +13,7 @@ CURRENT_MONTH = T.month
 
   test "test layout links" do
     get root_path
-    assert_template 'static_pages/home'
+    assert_template 'menus/show'
     assert_select "a[href=?]", '/', count: 3
     assert_select "a[href=?]", menus_path, count: 2
     assert_select "a[href=?]", contact_path, count: 2
@@ -24,21 +24,19 @@ CURRENT_MONTH = T.month
   end
 
   test "breakfast menu being display according to restaurant hours" do 
-    puts "Test should fail during the weekend days and hours" 
     Time.current
     travel_to Time.zone.local(CURRENT_YEAR, CURRENT_MONTH, CURRENT_DATE, 06, 15, 00).in_time_zone('Eastern Time (US & Canada)')
     get root_path
-    assert_template 'static_pages/home'
-    assert_match "Breakfast Menu", response.body
+    assert_template 'menus/show'
+    assert_match "Breakfast", response.body
   end
 
   test "lunch menu being display according to restaurant hours" do  
-    puts "Test should fail during the weekend days and hours"
     Time.current
     travel_to Time.zone.local(CURRENT_YEAR, CURRENT_MONTH, CURRENT_DATE, 11, 45, 00).in_time_zone('Eastern Time (US & Canada)')
     get root_path
-    assert_template 'static_pages/home'
-    assert_match "Lunch Menu", response.body
+    assert_template 'menus/show'
+    assert_match "Lunch", response.body
   end
 
   test "happy hour menu being display according to restaurant hours" do 
@@ -46,25 +44,26 @@ CURRENT_MONTH = T.month
     Time.current
     travel_to Time.zone.local(CURRENT_YEAR, CURRENT_MONTH, CURRENT_DATE, 16, 45, 00).in_time_zone('Eastern Time (US & Canada)')
     get root_path
-    assert_template 'static_pages/home'
-    assert_match "Happy Hour Menu, only available in restaurant", response.body
-    assert_match "Dinner Menu", response.body
+    assert_template 'menus/show'
+    assert_match "Happy Hour", response.body
+    assert_match "Dinner", response.body
   end
 
   test "dinner menu being display according to restaurant hours" do  
     Time.current
     travel_to Time.zone.local(CURRENT_YEAR, CURRENT_MONTH, CURRENT_DATE, 19, 45, 00).in_time_zone('Eastern Time (US & Canada)')
     get root_path
-    assert_template 'static_pages/home'
-    assert_match "Dinner Menu", response.body
+    assert_template 'menus/show'
+    assert_match "Dinner", response.body
   end
 
   test "latenight menu being display beaccording to restaurant hours" do  
     Time.current
     travel_to Time.zone.local(CURRENT_YEAR, CURRENT_MONTH, CURRENT_DATE, 22, 45, 00).in_time_zone('Eastern Time (US & Canada)')
+    travel_to Time.zone.local(CURRENT_YEAR, CURRENT_MONTH, CURRENT_DATE, 0, 45, 00).in_time_zone('Eastern Time (US & Canada)')
     get root_path
-    assert_template 'static_pages/home'
-    assert_match "Late Night Menu", response.body
+    assert_template 'menus/show'
+    assert_match "Late Night", response.body
   end
 
   test "brunch menu being display beaccording to restaurant hours" do 
@@ -72,8 +71,8 @@ CURRENT_MONTH = T.month
     Time.current
     travel_to Time.zone.local(CURRENT_YEAR, CURRENT_MONTH, CURRENT_DATE, 10, 45, 00).in_time_zone('Eastern Time (US & Canada)')
     get root_path
-    assert_template 'static_pages/home'
-    assert_match "Brunch Menu", response.body
+    assert_template 'menus/show'
+    assert_match "Brunch", response.body
   end
 
 

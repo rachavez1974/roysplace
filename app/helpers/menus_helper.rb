@@ -13,6 +13,9 @@ CURRENT_MONTH = T.month
 START_TIME_NEXTDAY = Time.new(CURRENT_YEAR, CURRENT_MONTH, CURRENT_DATE, 00, 00, 00).in_time_zone('Eastern Time (US & Canada)')
 END_TIME_NEXTDAY   = Time.new(CURRENT_YEAR, CURRENT_MONTH, CURRENT_DATE, 02, 00, 00).in_time_zone('Eastern Time (US & Canada)')
 
+def current_menu
+  return @type_of_menus
+end
 
   def is_next_day?
     DateTime.now.between?(START_TIME_NEXTDAY, END_TIME_NEXTDAY)

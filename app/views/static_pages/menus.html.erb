@@ -1,0 +1,79 @@
+<% provide(:title, "Menus") %>
+<div class="title-section-ourmenu t-center m-b-22">
+  <span class="tit2 t-center">
+    Discover
+  </span>
+  <h3 class="tit5 t-center m-t-2">
+    Our Menus
+  </h3>
+</div>
+<div class="row">
+  <div class="column">
+    <div class="item-ourmenu bo-rad-10 hov-img-zoom pos-relative m-t-30">
+      
+        <%= link_to show_path(:menu => 0) do %>
+          <span class="tit2 t-center">
+          Breakfast
+          </span>
+        <%= link_to image_tag("breakfastmenu.jpg", alt: "Breakfast Menu"), show_path(:menu => 0)%>
+        <% end %>
+   </div> 
+  </div>  
+  <div class="column">
+    <div class="item-ourmenu bo-rad-10 hov-img-zoom pos-relative m-t-30">
+        <%= link_to show_path(:menu => 1)do %>
+          <span class="tit2 t-center">
+          Lunch
+          </span>
+        <%= link_to image_tag("lunchmenu.jpg", alt: "Lunch Menu"), show_path(:menu => 1) %>
+        <% end %>
+   </div>
+  </div>
+  <div class="column">
+    <div class="item-ourmenu bo-rad-10 hov-img-zoom pos-relative m-t-30">
+        <%= link_to show_path(:menu => 2) do %>
+          <span class="tit2 t-center">
+          Happy Hour
+          </span>
+        <%= link_to image_tag("happyhourmenu.jpg", alt: "Happy Menu"), show_path(:menu => 2) %>
+        <% end %>
+   </div>
+  </div>
+
+  <div class="column">
+    <div class="item-ourmenu bo-rad-10 hov-img-zoom pos-relative m-t-30">
+        <%= link_to show_path(:menu => 3) do %>
+          <span class="tit2 t-center">
+          Dinner
+          </span>
+        <%= link_to image_tag("dinnermenu.jpg", alt: "Dinner Menu"), show_path(:menu => 3) %>
+        <% end %>
+    </div>
+  </div>
+  <div class="column">
+    <div class="item-ourmenu bo-rad-10 hov-img-zoom pos-relative m-t-30">
+        <%= link_to show_path(:menu => 4) do %>
+          <span class="tit2 t-center">
+          Late Night
+          </span>
+        <%= link_to image_tag("latenightmenu.jpg", alt: "Late Night Menu"), show_path(:menu => 4) %>
+        <% end %>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="item-ourmenu bo-rad-10 hov-img-zoom pos-relative m-t-30">
+        <%= link_to show_path(:menu => 5) do %>
+          <span class="tit2 t-center">
+          Brunch
+          </span>
+        <%= link_to image_tag("brunchmenu.jpg", alt: "Brunch Menu"), show_path(:menu => 5) %>
+        <% end %>
+    </div>
+  </div>
+</div>
+
+
+
+
+

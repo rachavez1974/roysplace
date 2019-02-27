@@ -9,7 +9,7 @@
             </h3>
             <br>
 
-            <% @menus.each do |item| %>
+            <% @menu_items.each do |item| %>
             <% if item.section == "Dishes" %>
             <!-- Item mainmenu -->
             <div class="item-mainmenu m-b-36">
@@ -29,21 +29,16 @@
               <span class="info-item-mainmenu txt23">
                 <%= item.description %>
               </span>
-              <% if User.is_admin?(current_user) %>
-                <%= link_to "Edit Item", edit_menu_item_path(item), class: "btn btn-sm btn-primary" %>
-                <%= link_to "Delete Item", item, method: :delete,
-                                  data: { confirm: "You sure?" }, class: "btn btn-sm btn-primary" %>
-              <% elsif is_next_day? %>
-                <% if item.availability == false %>
-                <div class="d-inline p-2 bg-primary text-white text-center">ITEM NOT AVAILABLE AT THIS TIME!</div>
-                <% else %>
-                <div class="d-inline p-2 bg-primary text-white text-center">NO DELIVERIES BETWEEN 12AM - 2AM!</div>
-                <% end %> 
-              <% elsif item.availability %>
-                <p><%= button_to "Add to Cart", "#", class: "btn btn-sm btn-primary"  %></p>
-              <% else %>               
-                <div class="d-inline p-2 bg-primary text-white text-center">ITEM NOT AVAILABLE AT THIS TIME!</div>
-              <% end %> 
+                <% if User.is_admin?(current_user) %>
+                  <%= link_to "Edit Item", edit_menu_item_path(item), class: "btn btn-sm btn-primary" %>
+                 <% elsif @live_menu.include?(@specific_menu) %>
+                    <% if item.availability == false %>
+                      <div class="d-inline p-2 bg-primary text-white text-center">ITEM NOT AVAILABLE AT THIS TIME!</div>
+                    <% elsif item.menu_type != "Happyhour" %>
+                      <p><%= button_to "Add to Cart", "#", class: "btn btn-sm btn-primary"  %></p>
+                    <% end %>
+                 <% end %>
+            </div>
             <% end %>
             <% end %>
             

@@ -1,4 +1,4 @@
-<%= render 'static_pages/homepartials/available_menu' %>
+
 <!-- Start reservation Area -->
 <div class="reservation-area">
 
@@ -20,6 +20,7 @@
       <div class="col-md-6">
         <div class="reservation-form">
           <div class="col-lg-5 reservation-right">
+            <% if !User.is_admin?(current_user) %>
             <form class="form-wrap text-center" action="#">
               <input type="text" class="form-control" name="name" placeholder="Your Name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Your Name'" >
               <input type="email" class="form-control" name="email" placeholder="Your Email Address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Your Email Address'" >
@@ -36,6 +37,7 @@
               </div>                  
               <button class="primary-btn text-uppercase mt-20">Make Reservation</button>
             </form>
+            <% end %>
             
           </div></div>
         </div>

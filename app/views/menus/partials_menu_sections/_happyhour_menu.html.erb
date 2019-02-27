@@ -1,14 +1,19 @@
+<style type="text/css">
+  
+  .card-columns {
+    column-count: 3;
+}
+</style>
+
 <div class="row">
-  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center
-  ">
-  <div class="tit2 t-center">
-    <h1 class="page-title">Happy Hour Menu, only available in restaurant</h1>
+  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+    <div class="tit2 t-center">
+      <h1 class="page-title"> Happy Hour </h1>
+    </div>
   </div>
 </div>
-</div>
 
-<!-- Starters menu -->
-  <section class="section-mainmenu p-t-110 p-b-70 bg1-pattern">
+<section class="section-mainmenu p-t-110 p-b-70 bg1-pattern">
     <div class="container">
       <div class="row">
         <div class="col-md-10 col-lg-6 p-r-35 p-r-15-lg m-l-r-auto">
@@ -17,27 +22,24 @@
               STARTERS
             </h3>
             <br>
-
-            <% @menus.each do |item| %>
-            <% if item.menu_type == "Happyhour"%>
-            <!-- Item mainmenu -->
-            <div class="item-mainmenu m-b-36">
-              <div class="flex-w flex-b m-b-3">
-                <a href="#" class="name-item-mainmenu txt20">
-                  <%= item.name %>
-                </a>
-                <div class="line-item-mainmenu bg3-pattern"></div>
-                <div class="price-item-mainmenu txt22">
-                  <%= number_to_currency item.price%>
-                </div>
-              </div>
-              <span class="info-item-mainmenu txt23">
-                <%= item.description %>
-              </span>
-            </div>
+            <% @menu_items.each do |item| %>
+              <% if item.section ==  "Starters" && item.menu_type == "Happyhour" %>
+                <div class="item-mainmenu m-b-36">
+                  <div class="flex-w flex-b m-b-3">
+                    <a href="#" class="name-item-mainmenu txt20">
+                      <%= item.name %>
+                    </a>
+                    <div class="line-item-mainmenu bg3-pattern"></div>
+                    <div class="price-item-mainmenu txt22">
+                      <%= number_to_currency item.price%>  
+                    </div>
+                  </div>
+                  <span class="info-item-mainmenu txt23"><%= item.description %></span>
+                  <% if User.is_admin?(current_user) %>
+                   <%= link_to "Edit Item", edit_menu_item_path(item), class: "btn btn-sm btn-primary" %>
+                  <% end %>
+              <% end %>
             <% end %>
-            <% end %>
-            
             </div>
           </div>
         </div>
@@ -45,12 +47,7 @@
     </div>
   </section>
 
-<div class="row">
-  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center
-  ">
-  <div class="tit2 t-center">
-    <h1 class="page-title">Dinner Menu</h1>
-  </div>
-</div>
-</div>
-<%= render 'menus/partials_menu_sections/starters_row' %>
+
+
+
+
