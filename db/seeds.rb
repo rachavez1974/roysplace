@@ -102,13 +102,13 @@
 #             admin: true)
 
 # items = MenuItem.all
-require 'csv'
+# require 'csv'
 # CSV.open('lib/seeds/menu_items.csv', 'wb') do |csv|
-#   csv << ['name','description','price','availability','section','menu_type']
+#   csv << ['name','description','price','availability','section','menu_type','current_menu']
 #     items.each do |item|
-#       csv << [item.name,item.description,item.price,item.availability,item.section,item.menu_type]
+#       csv << [item.name,item.description,item.price,item.availability,
+#               item.section,item.menu_type,item.current_menu]
 #     end
-
 # end
 
 
