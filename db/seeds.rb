@@ -43,22 +43,31 @@
 # end
 
   
-  menu_item_file = File.open('lib/seeds/menu_items.txt')
-  lines = IO.readlines(menu_item_file)
+  # menu_item_file = File.open('lib/seeds/menu_items.txt')
+  # lines = IO.readlines(menu_item_file)
+  # puts line
 
-  lines.each do |line|
-   item_parts = line.split(',')
-    item_parts.each do |part|
-      MenuItem.create!(
-        name: part[0],
-        description: part[1],
-        price: part[2],
-        availability: part[3],
-        section: part[4],
-        menu_type: part[5]
-        )
-    end     
-  end
+  # flag = true
+  # lines.each do |line|
+  #   puts line
+  #   if flag
+  #     break
+  #     debugger
+  #   end
+  #  # item_parts = line.split(',')
+  #  #  item_parts.each do |part|
+  #  #    puts part
+  #  #    break
+  #     # MenuItem.create!(
+  #     #   name: part[0],
+  #     #   description: part[1],
+  #     #   price: part[2],
+  #     #   availability: part[3],
+  #     #   section: part[4],
+  #     #   menu_type: part[5]
+  #     #   )
+  #   # end     
+  # end
 
 #********************************
 
@@ -92,5 +101,17 @@
 #             terms: true,
 #             admin: true)
 
+# items = MenuItem.all
+# require 'csv'
+# CSV.open('lib/seeds/menu_items.csv', 'wb') do |csv|
+#   csv << ['name','description','price','availability','section','menu_type']
+#     items.each do |item|
+#       csv << [item.name,item.description,item.price,item.availability,item.section,item.menu_type]
+#     end
 
+# end
+
+  CSV.foreach('lib/seeds/menu_items.csv', headers: true) do |row|
+    MenuItem.create! row.to_hash
+  end
   
