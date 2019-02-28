@@ -1,7 +1,6 @@
 
 
-
-<% if @live_menu.include?("Happy Hour") %>
+<% if @live_menu.first.to_s == "Happy Hour" %>
   <%= render 'menus/partials_menu_sections/happyhour_menu' %>
   <br>
   <div class="row">

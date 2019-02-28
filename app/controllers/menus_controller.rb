@@ -21,7 +21,7 @@
 
 
   def show
-    menu = get_live_menu.to_s
+    menu = get_live_menu
     @specific_menu = @live_menu
     if params[:menu]
       @menu_items = MenuItem.get_menu_items(params[:menu])
