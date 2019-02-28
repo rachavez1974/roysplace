@@ -102,7 +102,7 @@
 #             admin: true)
 
 # items = MenuItem.all
-# require 'csv'
+require 'csv'
 # CSV.open('lib/seeds/menu_items.csv', 'wb') do |csv|
 #   csv << ['name','description','price','availability','section','menu_type']
 #     items.each do |item|
@@ -110,6 +110,7 @@
 #     end
 
 # end
+
 
   CSV.foreach('lib/seeds/menu_items.csv', headers: true) do |row|
     MenuItem.create! row.to_hash
