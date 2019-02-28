@@ -1,5 +1,5 @@
   class MenusController < ApplicationController 
-  T = DateTime.now
+  T = DateTime.now.in_time_zone('Eastern Time (US & Canada)')
   MENU_TIMES = {"Breakfast" => { "start_time" => "6:0:0", 
                                   "end_time" =>"10:44:59"},
                 "Lunch" => {"start_time" => "10:45:00",
@@ -73,16 +73,24 @@
 
     def menu_type_time(key, value)
       if key == "Latenight"
-        DateTime.now.between?(value["start_time_today"].to_time, value["end_time_today"].to_time)  || 
-        DateTime.now.between?(value["start_time_next_day"].to_time, value["end_time_next_day"].to_time)   
+        DateTime.now.between?(value["start_time_today"].to_time.in_time_zone('Eastern Time (US & Canada)'),
+                              value["end_time_today"].to_time.in_time_zone('Eastern Time (US & Canada)')) || 
+        DateTime.now.between?(value["start_time_next_day"].to_time.in_time_zone('Eastern Time (US & Canada)'),
+                              value["end_time_next_day"].to_time.in_time_zone('Eastern Time (US & Canada)'))   
       else
-        DateTime.now.between?(value["start_time"].to_time, value["end_time"].to_time) && (1..5).include?(T.wday) ||
-        DateTime.now.between?(value["start_time"].to_time, value["end_time"].to_time) && [0,6].include?(T.wday)
+        DateTime.now.between?(value["start_time"].to_time.in_time_zone('Eastern Time (US & Canada)'), 
+                              value["end_time"].to_time.in_time_zone('Eastern Time (US & Canada)')) && 
+                              (1..5).include?(T.wday) ||
+        DateTime.now.between?(value["start_time"].to_time.in_time_zone('Eastern Time (US & Canada)'),
+                              value["end_time"].to_time.in_time_zone('Eastern Time (US & Canada)')) && 
+                              [0,6].include?(T.wday)
       end  
     end
 
     def happy_hour_time?
-      DateTime.now.between?(HAPPY_HOUR_TIME["Happy Hour"]["start_time"].to_time, HAPPY_HOUR_TIME["Happy Hour"]["end_time"].to_time) && (1..5).include?(T.wday)
+      DateTime.now.between?(HAPPY_HOUR_TIME["Happy Hour"]["start_time"].to_time.in_time_zone('Eastern Time (US & Canada)'),
+                            HAPPY_HOUR_TIME["Happy Hour"]["end_time"].to_time.in_time_zone('Eastern Time (US & Canada)')) && 
+                            (1..5).include?(T.wday)
     end
 
     def resolve_layout
