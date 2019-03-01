@@ -19,7 +19,6 @@
   HAPPY_HOUR_TIME = {"Happy Hour" => {"start_time" => "15:45:00",
                                       "end_time" => "18:44:59"} }
 
-
   def show
     menu = get_live_menu
     @specific_menu = @live_menu
