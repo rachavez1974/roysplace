@@ -1,6 +1,6 @@
 
 
-<% if @live_menu.first.to_s == "Happy Hour" %>
+<% if @live_menu.is_a?(Array) && @live_menu.first.to_s == "Happy Hour" %>
   <%= render 'menus/partials_menu_sections/happyhour_menu' %>
   <br>
   <div class="row">
@@ -61,7 +61,7 @@
 
                   <% if User.is_admin?(current_user) %>
                    <%= link_to "Edit Item", edit_menu_item_path(item), class: "btn btn-sm btn-primary" %>
-                  <% elsif  @live_menu.include?(@specific_menu) %>
+                  <% elsif  @live_menu.include?(@specific_menu) && @live_menu != "Default" %>
                     <% if item.availability == false %>
                       <div class="d-inline p-2 bg-primary text-white text-center">ITEM NOT AVAILABLE AT THIS TIME!</div>
                     <% elsif item.menu_type != "Happyhour" %>

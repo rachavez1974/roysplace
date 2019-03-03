@@ -1,6 +1,6 @@
   class MenusController < ApplicationController 
-  T = DateTime.now.in_time_zone('Eastern Time (US & Canada)')
-  MENU_TIMES = {"Breakfast" => { "start_time" => "6:0:0", 
+  T = Time.zone.now
+  MENU_TIMES = {"Breakfast" => { "start_time" => ("6:0:0".to_time), 
                                   "end_time" =>"10:44:59"},
                 "Lunch" => {"start_time" => "10:45:00",
                             "end_time" => "15:44:59"},
@@ -9,9 +9,11 @@
                 "Latenight" => { "start_time_today" => "21:45:0",
                                  "end_time_today" => "23:59:59",
                                  "start_time_next_day" => "0:0:0",
-                                 "end_time_next_day" => "2:0:0"},
+                                 "end_time_next_day" => "1:59:59"},
                 "Brunch" => {"start_time" => "9:0:0",
-                             "end_time" => "15:44:59"}
+                             "end_time" => "15:44:59"},
+                "Default" => {"start_time" => "2:0:0",
+                              "end_time" => "5:59:59"}
 
                 }
 
@@ -47,7 +49,7 @@
   private
 
     def get_live_menu
-      MENU_TIMES.each_with_index do |(key, value), index|
+      MENU_TIMES.each do |key, value|
         if menu_type_time(key, value)
           case key
             when "Breakfast"
@@ -65,31 +67,26 @@
             when "Brunch"
               @live_menu = "Brunch"
               return 5
+            else "Default"
+              @live_menu = "Defualt"
+              return 0
           end
-        end
+        end 
       end
     end
 
     def menu_type_time(key, value)
       if key == "Latenight"
-        DateTime.now.between?(value["start_time_today"].to_time.in_time_zone('Eastern Time (US & Canada)'),
-                              value["end_time_today"].to_time.in_time_zone('Eastern Time (US & Canada)')) || 
-        DateTime.now.between?(value["start_time_next_day"].to_time.in_time_zone('Eastern Time (US & Canada)'),
-                              value["end_time_next_day"].to_time.in_time_zone('Eastern Time (US & Canada)'))   
+        Time.zone.now.between?(value["start_time_today"].to_time, value["end_time_today"].to_time) || 
+        Time.zone.now.between?(value["start_time_next_day"].to_time, value["end_time_next_day"].to_time)   
       else
-        DateTime.now.between?(value["start_time"].to_time.in_time_zone('Eastern Time (US & Canada)'), 
-                              value["end_time"].to_time.in_time_zone('Eastern Time (US & Canada)')) && 
-                              (1..5).include?(T.wday) ||
-        DateTime.now.between?(value["start_time"].to_time.in_time_zone('Eastern Time (US & Canada)'),
-                              value["end_time"].to_time.in_time_zone('Eastern Time (US & Canada)')) && 
-                              [0,6].include?(T.wday)
+        Time.zone.now.between?(value["start_time"], value["end_time"].to_time) && (1..5).include?(T.wday) ||
+        Time.zone.now.between?(value["start_time"].to_time, value["end_time"].to_time) && [0,6].include?(T.wday)
       end  
     end
 
     def happy_hour_time?
-      DateTime.now.between?(HAPPY_HOUR_TIME["Happy Hour"]["start_time"].to_time.in_time_zone('Eastern Time (US & Canada)'),
-                            HAPPY_HOUR_TIME["Happy Hour"]["end_time"].to_time.in_time_zone('Eastern Time (US & Canada)')) && 
-                            (1..5).include?(T.wday)
+      Time.zone.now.between?(HAPPY_HOUR_TIME["Happy Hour"]["start_time"].to_time, HAPPY_HOUR_TIME["Happy Hour"]["end_time"].to_time) && (1..5).include?(T.wday)
     end
 
     def resolve_layout
