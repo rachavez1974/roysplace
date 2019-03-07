@@ -92,7 +92,9 @@
     end
 
     def happy_hour_time?
-      Time.zone.now.between?(HAPPY_HOUR_TIME["Happy Hour"]["start_time"].to_time, HAPPY_HOUR_TIME["Happy Hour"]["end_time"].to_time) && (1..5).include?(T.wday)
+      starting = Time.zone.parse(HAPPY_HOUR_TIME["Happy Hour"]["start_time"])
+      ending = Time.zone.parse(HAPPY_HOUR_TIME["Happy Hour"]["end_time"])
+      Time.now.between?(starting, ending) && (1..5).include?(T.wday)
     end
 
     def resolve_layout
