@@ -22,11 +22,13 @@
                                       "end_time" => "18:44:59"} }
 
   def show
+    #get the index of the menu being displayed now
     menu = get_live_menu
+    #assign live_menu to specific_menu to compare later in view
     @specific_menu = @live_menu
     if params[:menu]
       @menu_items = MenuItem.get_menu_items(params[:menu])
-      @specific_menu = @menu_items[0].menu_type
+      @specific_menu = @menu_items.first.menu_type
         case @specific_menu
           when "Happyhour"
             @specific_menu = "Happy Hour"
