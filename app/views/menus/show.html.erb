@@ -1,4 +1,3 @@
-<% provide(:title, "Home") %>
 <script type="text/javascript">
 $(function(){
     $('.scroll1').infiniteslide();
@@ -44,5 +43,8 @@ $(function(){
 </div>
 
 
-<!-- Slider html ends here. -->
-<%= render 'static_pages/homepartials/reservation' %>
+<% if @specific_menu == "Happy Hour" %>
+  <%= render 'menus/partials_menu_sections/happyhour_menu' %>
+<% else %>
+  <%= render 'menus/partials_menu_sections/starters_row' %>
+<% end %>

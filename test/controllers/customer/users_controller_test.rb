@@ -31,7 +31,7 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
   test "should redirect edit when logged in as a wrong user" do
     log_in_as(@another_user)
     assert_not flash.empty?
-    assert_redirected_to customer_user_url(@another_user) 
+    assert_redirected_to root_url  
     follow_redirect!   
     get edit_customer_user_path(@user)
     assert flash.empty?
@@ -41,7 +41,7 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
   test "should redirect edit when user doesn't exist" do
     log_in_as(@another_user)
     assert_not flash.empty?
-    assert_redirected_to customer_user_url(@another_user)
+    assert_redirected_to root_url
     follow_redirect! 
     non_user = User.new(:id => 15)
     get edit_customer_user_path(non_user)
@@ -52,7 +52,7 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
   test "should redirect update when logged in as wrong user" do
     log_in_as(@another_user)
     assert_not flash.empty?
-    assert_redirected_to customer_user_url(@another_user)
+    assert_redirected_to root_url
     follow_redirect!   
     patch customer_user_path(@user), params: { user: { first_name: @user.first_name,
                                               email: @user.email
@@ -65,7 +65,7 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
   test "should redirect update when user doesn't exist" do
     log_in_as(@another_user)
     assert_not flash.empty?
-    assert_redirected_to customer_user_url(@another_user)
+    assert_redirected_to root_url
     follow_redirect! 
     non_user = User.new(:id => 15)  
     patch customer_user_path(non_user), params: { user: { first_name: @user.first_name,

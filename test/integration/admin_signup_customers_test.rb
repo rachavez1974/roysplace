@@ -30,7 +30,7 @@ class AdminSignupUserTest < ActionDispatch::IntegrationTest
   
   test "attempting signing up with right information, and login, and address, but with no validation" do
     get admin_login_path
-    assert_select "a[href=?]", admin_login_path, count: 1
+    assert_select "a[href=?]", admin_login_path, count: 2
     assert_template 'admin/sessions/new'
       post admin_login_path, params: { session: { email: "mr.james.bond@gmail.com", password: "password" } }
 

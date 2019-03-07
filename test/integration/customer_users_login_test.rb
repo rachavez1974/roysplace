@@ -25,14 +25,14 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
 
 
     assert is_logged_in?
-    assert_redirected_to customer_user_url(@user) 
+    assert_redirected_to root_url 
     follow_redirect!    
-    assert_template 'customer/users/show'
+    assert_template 'menus/show'
     assert_not flash.empty?
     assert_select 'div.alert', "Welcome back #{@user.first_name}"
     assert_select "a[href=?]", customer_login_path, count: 0
     assert_select "a[href=?]", customer_logout_path, count: 1
-    assert_select "a[href=?]", customer_user_path(@user), count: 2
+    assert_select "a[href=?]", customer_user_path(@user), count: 1
     delete customer_logout_path
     assert_not is_logged_in?
     assert_redirected_to root_url

@@ -10,6 +10,19 @@ class MenuItem < ApplicationRecord
   validates :section, presence: true, if: :section_present?
   validates :menu_type, presence: true, if: :menu_type_present?
 
+def self.get_menu_items(*menu_type)
+  if menu_type[1].nil?
+    MenuItem.where("current_menu = ? AND menu_type = ?", true, menu_type)
+  else
+    MenuItem.where("current_menu = ? AND (menu_type = ? OR menu_type =?)",
+                   true, menu_type.first, menu_type.last)
+  end
+
+  #  = ? OR menu_type = ?)", 
+  # true, item_menu_type[0], item_menu_type[1])
+
+end
+
   private
 
     #returns true if section includes in the array above
