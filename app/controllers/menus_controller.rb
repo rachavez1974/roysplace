@@ -1,6 +1,6 @@
   class MenusController < ApplicationController 
   T = Time.zone.now
-  MENU_TIMES = {"Breakfast" => { "start_time" => ("6:0:0".to_time), 
+  MENU_TIMES = {"Breakfast" => { "start_time" => "6:0:0", 
                                   "end_time" =>"10:44:59"},
                 "Lunch" => {"start_time" => "10:45:00",
                             "end_time" => "15:44:59"},
@@ -76,12 +76,18 @@
     end
 
     def menu_type_time(key, value)
+
       if key == "Latenight"
-        Time.zone.now.between?(value["start_time_today"].to_time, value["end_time_today"].to_time) || 
-        Time.zone.now.between?(value["start_time_next_day"].to_time, value["end_time_next_day"].to_time)   
+        start_today = Time.zone.parse(value["start_time_today"])
+        end_today = Time.zone.parse(value["end_time_today"])
+        start_tomorrow = Time.zone.parse(value["start_time_next_day"])
+        end_tomorrow = Time.zone.parse(value["end_time_next_day"])
+        Time.now.between?(start_today, end_today) || Time.now.between?(start_tomorrow, end_tomorrow)   
       else
-        Time.zone.now.between?(value["start_time"], value["end_time"].to_time) && (1..5).include?(T.wday) ||
-        Time.zone.now.between?(value["start_time"].to_time, value["end_time"].to_time) && [0,6].include?(T.wday)
+       starting = Time.zone.parse(value["start_time"])
+       ending = Time.zone.parse(value["end_time"])
+      Time.now.between?(starting, ending) && (1..5).include?(T.wday) ||
+      Time.now.between?(starting, ending) && [0,6].include?(T.wday)
       end  
     end
 
