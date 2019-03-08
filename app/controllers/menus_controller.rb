@@ -51,9 +51,9 @@
   private
 
     def get_live_menu
-      MENU_TIMES.each do |key, value|
-        if menu_type_time(key, value)
-          case key
+      MENU_TIMES.each do |menu_name, time_window|
+        if is_menu_live?(menu_name, time_window)
+          case menu_name
             when "Breakfast"
               @live_menu = "Breakfast"
               return 0
@@ -77,26 +77,26 @@
       end
     end
 
-    def menu_type_time(key, value)
-
-      if key == "Latenight"
-        start_today = Time.zone.parse(value["start_time_today"])
-        end_today = Time.zone.parse(value["end_time_today"])
-        start_tomorrow = Time.zone.parse(value["start_time_next_day"])
-        end_tomorrow = Time.zone.parse(value["end_time_next_day"])
-        Time.now.between?(start_today, end_today) || Time.now.between?(start_tomorrow, end_tomorrow)   
+    def is_menu_live?(menu_name, time_window)
+      if menu_name == "Latenight"
+        start_today = Time.zone.parse(time_window["start_time_today"])
+        end_today = Time.zone.parse(time_window["end_time_today"])
+        start_tomorrow = Time.zone.parse(time_window["start_time_next_day"])
+        end_tomorrow = Time.zone.parse(time_window["end_time_next_day"])
+        Time.now.between?(start_today, end_today) || Time.now.between?(start_tomorrow, end_tomorrow)
       else
-       starting = Time.zone.parse(value["start_time"])
-       ending = Time.zone.parse(value["end_time"])
-      Time.now.between?(starting, ending) && (1..5).include?(T.wday) ||
-      Time.now.between?(starting, ending) && [0,6].include?(T.wday)
+       start_time = Time.zone.parse(time_window["start_time"])
+       end_time = Time.zone.parse(time_window["end_time"])
+
+      Time.now.between?(start_time, end_time) && (1..5).include?(T.wday) ||
+      Time.now.between?(start_time, end_time) && [0,6].include?(T.wday)
       end  
     end
 
     def happy_hour_time?
-      starting = Time.zone.parse(HAPPY_HOUR_TIME["Happy Hour"]["start_time"])
-      ending = Time.zone.parse(HAPPY_HOUR_TIME["Happy Hour"]["end_time"])
-      Time.now.between?(starting, ending) && (1..5).include?(T.wday)
+      start_time = Time.zone.parse(HAPPY_HOUR_TIME["Happy Hour"]["start_time"])
+      end_time = Time.zone.parse(HAPPY_HOUR_TIME["Happy Hour"]["end_time"])
+      Time.now.between?(start_time, end_time) && (1..5).include?(T.wday)
     end
 
     def resolve_layout
